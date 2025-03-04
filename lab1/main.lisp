@@ -14,12 +14,42 @@
      hash-table))
 
 (defparameter *digits*
-  (loop for i from 0 to 9 collect (list i)))
+  (loop for i from 0 to 9 collect i))
 
 (defparameter *rules* 
   (list-to-hash-table 
-    '((:S ((#\+ :U) (#\- :U) (:U)))
-      (:U ((:D) (:U :D)))
-      (:D *digits*))))
+    (list 
+      (list :S '((#\+ :U) (#\- :U) (:U)))
+      (list :U '((:D) (:U :D)))
+      (list :D (mapcar #'list *digits*)))))
 
-(loop for i in *rules* (format t "~a" i))
+(defparameter *rules2*
+  (list-to-hash-table 
+    (list 
+      (list :S (append 
+                 '((#\+ :T) (#\- :T)) 
+                 (mapcar #'list *DIGITS*)
+                 (mapcar (alexandria-2:curry #'list #\-) 
+                         *digits*)))
+      (list :T (mapcar (alexandria-2:rcurry #'list :F) 
+                       (remove 0 *DIGITS*)))
+      (list :F (append
+                 (mapcar (alexandria:rcurry #'list :F)
+                         *DIGITS*)
+                 (mapcar #'list *digits*))))))
+
+(defun print-rules (rules)
+  (maphash 
+    (alexandria:curry #'format t "|~a ↦ ~a~%")
+    rules))
+
+(defun pprint-rules (rules)
+  (maphash
+    (lambda (s-sym alts)
+      (format t "{~a ↦ ~a~%" 
+        s-sym
+       (format nil "~{~a~^|~}"
+               (mapcar 
+                 (alexandria:curry #'format nil "~{~a~}") 
+                 (car alts)))))
+    rules))
