@@ -1,64 +1,4 @@
-(defmacro list-to-hash-table (alist &key (test #'eql))
-  "Creates constant hash-table from the list
-  Alist contains the set of pairs (key . value)
-  Example of alist:
-  '((A (B C))
-    (D (E)))
-  ⟺
-  |A ↦ (B C)
-  |D ↦ (E)
-  "
-  `(let ((hash-table (make-hash-table :test ,test :size (length ,alist))))
-     (loop for (key . value) in ,alist
-           do (setf (gethash key hash-table) value))
-     hash-table))
-
-(defparameter *digits*
-  (loop for i from 0 to 9 collect i))
-
-(defparameter *rules1* 
-  (list-to-hash-table 
-    (list 
-      (list '(:S) '((#\+ :U) (#\- :U) (:U)))
-      (list '(:U) '((:D) (:U :D)))
-      (list '(:D) (mapcar #'list *digits*)))
-    :test #'equal))
-
-
-(defparameter *rules2*
-  (list-to-hash-table 
-    (list 
-      (list '(:S) '((:B :D)))
-      (list '(:D) '((:A :D) (#\b #\c)))
-      (list '(#\b :A) '((:A #\b)))
-      (list '(:B :A) '((#\a :B)))
-      (list '(#\a :B #\b) '((#\a #\a #\b)))
-      (list '(:B #\b #\c) '((#\a #\b #\c))))
-    :test #'equal))
-
-(defun print-rules (rules)
-  (maphash 
-    (alexandria:curry #'format t "|~a ↦ ~a~%")
-    rules))
-
-(defun pprint-rules (rules)
-  (maphash
-    (lambda (s-sym alts)
-      (format t "{~a ↦ ~a~%" 
-       (format nil "~{~a~^~}" s-sym)
-       (format nil "~{~a~^|~}"
-               (mapcar 
-                 (alexandria:curry #'format nil "~{~a~}") 
-                 (car alts)))))
-    rules))
-
-(pprint-rules *rules1*)
-(pprint-rules *rules2*)
-(get-alternatives (list :S) *rules2*)
-
-(defun get-alternatives (non-terminal rules)
-  "Возвращает список возможных замен для данного нетерминала."
-   (car (gethash non-terminal rules)))
+(in-package #:tofl.common)
 
 (defun replace-subsequence (expression subsequence replacement)
   "Заменяет подпоследовательность в выражении на заданную альтернативу."
@@ -69,8 +9,6 @@
                    (setf result (append (subseq result 0 i) replacement (subseq result (+ i (length subsequence)))))
                    (return-from replace-subsequence result)))) ; Замена только первого вхождения
     result))
-
-(replace-subsequence '(:y c :y) '(c :y) '(:h))
 
 (defun interactive-replace-subsequences (expression rules)
   (labels ((iter (history)
@@ -128,6 +66,3 @@
           (mapcar (alexandria-2:curry #'format nil "~{~a~}")
                   alist)))
 
-(pprint-inference (interactive-replace-subsequences '(:S) *rules2*))
-
-(format t "~{~a~%~}" (mapcar (alexandria-2:curry #'format nil "~a ~a") '(1 3 2) '(a b c)))
