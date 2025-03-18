@@ -89,6 +89,7 @@
                    (format t "Thre are terminals only~%")
                    history)
                   (let ((subsequence (first filtered-subsequences)))
+                    (format t "~v@{~a~:*~}~%" 10 #\=)
                     (format t "Expression: ~a~%" expression)
                     (format t "Available rules for ~a are:~%" subsequence)
                     (let* ((alternatives (get-alternatives subsequence rules))
@@ -104,7 +105,7 @@
                                               "~a. ~a")
                                       (alexandria-2:iota n-alts)
                                       alternatives))
-                            (format t "Choose number of rule (or 'q' for exit): ")
+                            (format t "Choose number of rule (or 'q' for exit).~%")
                             (let ((choice (read)))
                               (cond 
                                 ((eql choice 'q) (format t "Exit.~%") history)
