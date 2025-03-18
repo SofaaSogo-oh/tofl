@@ -16,27 +16,25 @@
 (defparameter *digits*
   (loop for i from 0 to 9 collect i))
 
-(defparameter *rules* 
+(defparameter *rules1* 
   (list-to-hash-table 
     (list 
-      (list :S '((#\+ :U) (#\- :U) (:U)))
-      (list :U '((:D) (:U :D)))
-      (list :D (mapcar #'list *digits*)))))
+      (list '(:S) '((#\+ :U) (#\- :U) (:U)))
+      (list '(:U) '((:D) (:U :D)))
+      (list '(:D) (mapcar #'list *digits*)))
+    :test #'equal))
+
 
 (defparameter *rules2*
   (list-to-hash-table 
     (list 
-      (list :s (append 
-                 '((#\+ :T) (#\- :T)) 
-                 (mapcar #'list *DIGITS*)
-                 (mapcar (alexandria-2:curry #'list #\-) 
-                         *digits*)))
-      (list :T (mapcar (alexandria-2:rcurry #'list :F) 
-                       (remove 0 *DIGITS*)))
-      (list :F (append
-                 (mapcar (alexandria:rcurry #'list :F)
-                         *DIGITS*)
-                 (mapcar #'list *digits*))))))
+      (list '(:S) '((:B :D)))
+      (list '(:D) '((:A :D) (#\b #\c)))
+      (list '(#\b :A) '((:A #\b)))
+      (list '(:B :A) '((#\a :B)))
+      (list '(#\a :B #\b) '((#\a #\a #\b)))
+      (list '(:B #\b #\c) '((#\a #\b #\c))))
+    :test #'equal))
 
 (defun print-rules (rules)
   (maphash 
@@ -54,57 +52,81 @@
                  (car alts)))))
     rules))
 
+(pprint-rules *rules1*)
+(pprint-rules *rules2*)
+(get-alternatives (list :S) *rules2*)
+
 (defun get-alternatives (non-terminal rules)
   "Возвращает список возможных замен для данного нетерминала."
-  (first (gethash non-terminal rules)))
+   (car (gethash non-terminal rules)))
 
-(defun replace-non-terminal (expression non-terminal alternative)
-  "Заменяет первое вхождение non-terminal в expression на alternative.
-   Возвращает новое выражение или NIL, если замена невозможна."
-  (let ((pos (position non-terminal expression)))
-    (if pos
-        (append (subseq expression 0 pos)
-                alternative
-                (subseq expression (+ pos 1)))
-        nil)))
+(defun replace-subsequence (expression subsequence replacement)
+  "Заменяет подпоследовательность в выражении на заданную альтернативу."
+  (let ((result (copy-list expression))) ; Копируем, чтобы не модифицировать исходный список
+    (loop for i from 0 to (- (length expression) (length subsequence))
+          do (if (equal (subseq expression i (+ i (length subsequence))) subsequence)
+                 (progn
+                   (setf result (append (subseq result 0 i) replacement (subseq result (+ i (length subsequence)))))
+                   (return-from replace-subsequence result)))) ; Замена только первого вхождения
+    result))
 
-(defun interactive-replace (expression rules)
-  "Интерактивно заменяет нетерминалы в выражении, запрашивая у пользователя выбор правила."
-  (let ((non-terminals (remove-if-not (lambda (x) (keywordp x)) expression)))
-    (if (null non-terminals)
-        (progn
-          (format t "Выражение содержит только терминалы: ~a~%" expression)
-          expression)
-        (let ((non-terminal (first non-terminals)))
-          (format t "Выражение: ~a~%" expression)
-          (format t "Доступные правила для ~a:~%" non-terminal)
-          (let ((alternatives (get-alternatives non-terminal rules)))
-            (if (null alternatives)
-                (progn
-                  (format t "Нет правил для ~a!~%" non-terminal)
-                  expression) ; Или что-то другое по вашему желанию
-                (progn
-                  (loop for i from 0 to (1- (length alternatives))
-                        do (format t "~d: ~a~%" i (nth i alternatives)))
-                  (format t "Выберите номер правила (или 'q' для выхода): ")
-                  (let ((choice (read)))
-                    (cond
-                      ((eql choice 'q)
-                       (format t "Прерывание.~%")
-                       expression) ; Возвращаем исходное выражение
-                      ((and (integerp choice) (>= choice 0) (< choice (length alternatives)))
-                       (let ((new-expression (replace-non-terminal expression non-terminal (nth choice alternatives))))
-                         (if new-expression
-                             (interactive-replace new-expression rules) ; Рекурсивный вызов для продолжения замен
-                             (progn
-                               (format t "Ошибка при замене!~%")
-                               expression)))) ; Возвращаем исходное выражение в случае ошибки
-                      (t
-                       (format t "Неверный выбор.~%")
-                       (interactive-replace expression rules))))))))))) ; Повторный вызов с тем же выражением
-;; Пример использования:
-(defparameter *initial-expression* '(:S))
+(replace-subsequence '(:y c :y) '(c :y) '(:h))
 
-(defun main ()
-  (let ((final-expression (interactive-replace *initial-expression* *rules2*)))
-    (format t "Финальное выражение: ~a~%" final-expression)))
+(defun interactive-replace-subsequences (expression rules)
+  (labels ((iter (history)
+            (let* ((expression (car history))
+                   (subsequences 
+                    (loop for i from 0 to (1- (length expression))
+                          append (loop for j from (1+ i) to (length expression)
+                                  collect (subseq expression i j))))
+                   (sorted-subsequences (sort subsequences #'> :key #'length))
+                   (filtered-subsequences
+                    (remove-if-not 
+                      (alexandria-2:rcurry #'get-alternatives rules)
+                      sorted-subsequences)))
+              (if (null filtered-subsequences)
+                  (progn 
+                   (format t "Thre are terminals only~%")
+                   history)
+                  (let ((subsequence (first filtered-subsequences)))
+                    (format t "Expression: ~a~%" expression)
+                    (format t "Available rules for ~a are:~%" subsequence)
+                    (let* ((alternatives (get-alternatives subsequence rules))
+                           (n-alts (length alternatives)))
+                      (if (null alternatives)
+                          (progn
+                            (format t "No rules for ~a!~%" subsequences)
+                            expression)
+                          (progn 
+                            (format t "~{~a~%~}"
+                                    (mapcar (alexandria-2:curry 
+                                              #'format nil
+                                              "~a. ~a")
+                                      (alexandria-2:iota n-alts)
+                                      alternatives))
+                            (format t "Choose number of rule (or 'q' for exit): ")
+                            (let ((choice (read)))
+                              (cond 
+                                ((eql choice 'q) (format t "Exit.~%") history)
+                                ((and (integerp choice) (<= 0 choice) (< choice n-alts)
+                                      (let ((new-expr (replace-subsequence 
+                                                        expression subsequence 
+                                                        (nth choice alternatives))))
+                                        (if (equal new-expr expression)
+                                            (progn
+                                              (format t "Substitution error!~%")
+                                              history)
+                                            (iter (cons new-expr history))))))
+                                (t
+                                 (format t "Wrong input.~%")
+                                 (iter history))))))))))))
+    (reverse (iter (list expression)))))
+
+(defun pprint-inference (alist)
+  (format t "~{~a~^ ↝ ~}~%"
+          (mapcar (alexandria-2:curry #'format nil "~{~a~}")
+                  alist)))
+
+(pprint-inference (interactive-replace-subsequences '(:S) *rules2*))
+
+(format t "~{~a~%~}" (mapcar (alexandria-2:curry #'format nil "~a ~a") '(1 3 2) '(a b c)))
