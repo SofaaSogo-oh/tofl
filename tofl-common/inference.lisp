@@ -51,11 +51,10 @@
                     (loop for i from 0 to (1- (length expression))
                           append (loop for j from (1+ i) to (length expression)
                                   collect (subseq expression i j))))
-                   (sorted-subsequences (sort subsequences #'> :key #'length))
                    (filtered-subsequences
                     (remove-if-not 
                       (rcurry #'get-alternatives rules)
-                      sorted-subsequences)))
+                      subsequences)))
               (format t "~a~%" filtered-subsequences)
               (if (null filtered-subsequences)
                   (progn 
@@ -83,7 +82,7 @@
                             (format t "Choose number of rule (or 'q' for exit).~%")
                             (let ((choice (read)))
                               (cond 
-                                ((eql choice 'q) (format t "Exit.~%") history)
+                                ((eql choice 'q) (format t "Exit.~%") nil)
                                 ((and (integerp choice) (<= 0 choice) (< choice n-alts)
                                       (let ((new-expr (replace-subsequence 
                                                         expression filtered-subsequences 

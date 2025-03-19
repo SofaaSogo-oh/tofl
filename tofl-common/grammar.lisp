@@ -1,6 +1,6 @@
 (in-package #:tofl.common)
 
-(defmacro list-to-hash-table (alist &key (test #'eql))
+(defmacro list-to-hash-table (alist &key (test #'equal))
   "Creates constant hash-table from the list
   Alist contains the set of pairs (key . value)
   Example of alist:
