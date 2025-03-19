@@ -7,4 +7,6 @@
            #:get-alternatives)
   (:export #:replace-subsequence
            #:interactive-replace-subsequences
-           #:pprint-inference))
+           #:pprint-inference
+           #:left-choice
+           #:n-choice))

@@ -33,6 +33,6 @@
 
 (replace-subsequence '(#\+ :U) '((:U)) '(:U :D) 0)
 
-(pprint-inference (interactive-replace-subsequences '(:S) *rules1*))
+(pprint-inference (interactive-replace-subsequences '(:S) *rules1* :alist-choicer #'N-CHOICE))
 
 (format t "~{~a~%~}" (mapcar (alexandria-2:curry #'format nil "~a ~a") '(1 3 2) '(a b c)))

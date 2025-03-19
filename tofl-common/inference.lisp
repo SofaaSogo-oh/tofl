@@ -17,12 +17,6 @@
          (ns (length target-sequence))
          (target-pref-cnt (nth k pref-cnts))
          (result (copy-list expression)))
-    (print 'test)
-    (print expression)
-    (print alist-subsequence)
-    (print replacement)
-    (print k)
-    (print 'test)
     (loop for i from 0 to (- n ns)
           do (if (equal (subseq expression i (+ i ns)) target-sequence)
                  (progn 
@@ -39,7 +33,18 @@
   (declare (ignore alist))
   0)
 
-(defun interactive-replace-subsequences (expression rules &key (alist-choicer #'left-choice))
+(defun n-choice (alist) 
+  (format t "Choose your alist to substitute:~%")
+  (format t "~{~a~%~}"
+          (mapcar (curry #'format nil "~a. ~a")
+                  (iota (length alist))
+                  alist))
+  (let ((val (read)))
+    (if (and (integerp val) (<= 0 val) (< val (length alist)))
+        val
+        0)))
+
+(defun interactive-replace-subsequences (expression rules &key (alist-choicer #'n-choice))
   (labels ((iter (history)
             (let* ((expression (car history))
                    (subsequences 
@@ -49,7 +54,7 @@
                    (sorted-subsequences (sort subsequences #'> :key #'length))
                    (filtered-subsequences
                     (remove-if-not 
-                      (alexandria-2:rcurry #'get-alternatives rules)
+                      (rcurry #'get-alternatives rules)
                       sorted-subsequences)))
               (format t "~a~%" filtered-subsequences)
               (if (null filtered-subsequences)
@@ -70,10 +75,10 @@
                             expression)
                           (progn 
                             (format t "~{~a~%~}"
-                                    (mapcar (alexandria-2:curry 
+                                    (mapcar (curry 
                                               #'format nil
                                               "~a. ~a")
-                                      (alexandria-2:iota n-alts)
+                                      (iota n-alts)
                                       alternatives))
                             (format t "Choose number of rule (or 'q' for exit).~%")
                             (let ((choice (read)))
@@ -96,6 +101,6 @@
 
 (defun pprint-inference (alist)
   (format t "~{~a~^ ↝ ~}~%"
-          (mapcar (alexandria-2:curry #'format nil "~{~a~}")
+          (mapcar (curry #'format nil "~{~a~}")
                   alist)))
 
