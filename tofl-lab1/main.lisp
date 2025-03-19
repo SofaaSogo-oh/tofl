@@ -94,6 +94,8 @@
 (pprint-inference (interactive-replace-subsequences '(:S) *TASK3-RULES* :alist-choicer #'left-choice))
 ;;- ЛСВ:
 ;; S ↝ BD ↝ aBbCD ↝ aaBbCbCD ↝ aaaBbCbCbCD ↝ aaaabbCbCbCD ↝ aaaabbbCCbCD ↝ aaaabbbCbCCD ↝ aaaabbbbCCCD ↝ aaaabbbbCCDc ↝ aaaabbbbCDcc ↝ aaaabbbbDccc ↝ aaaabbbbcccc
+;;- ПСВ (облом)
+;; S ↝ BD ↝ aBbCD ↝ aBbDc ↝ aBbcc ↝ aaBbCbcc ↝ aaBbbCcc ↝ aaaBbCbbCcc ↝ aaaBbbCbCcc ↝ aaaBbbbCCcc ↝ aaaabbbbCCcc
 (defun right-choice (alist)
   (format t "~a~%" alist)
   (1- (length alist)))
