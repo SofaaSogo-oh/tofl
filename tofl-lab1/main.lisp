@@ -29,8 +29,10 @@
 (pprint-rules *rules2*)
 (get-alternatives (list :S) *rules2*)
 
-(replace-subsequence '(:y c :y) '(c :y) '(:h))
+(replace-subsequence '(:y c :y c :y) '((:y c) (c :y) (c :y)) '(:h))
 
-(pprint-inference (interactive-replace-subsequences '(:S) *rules2*))
+(replace-subsequence '(#\+ :U) '((:U)) '(:U :D) 0)
+
+(pprint-inference (interactive-replace-subsequences '(:S) *rules1*))
 
 (format t "~{~a~%~}" (mapcar (alexandria-2:curry #'format nil "~a ~a") '(1 3 2) '(a b c)))

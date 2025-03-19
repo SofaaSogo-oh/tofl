@@ -1,16 +1,45 @@
 (in-package #:tofl.common)
 
-(defun replace-subsequence (expression subsequence replacement)
-  "Заменяет подпоследовательность в выражении на заданную альтернативу."
-  (let ((result (copy-list expression))) ; Копируем, чтобы не модифицировать исходный список
-    (loop for i from 0 to (- (length expression) (length subsequence))
-          do (if (equal (subseq expression i (+ i (length subsequence))) subsequence)
-                 (progn
-                   (setf result (append (subseq result 0 i) replacement (subseq result (+ i (length subsequence)))))
-                   (return-from replace-subsequence result)))) ; Замена только первого вхождения
+(defun map-to-found-count (alist)
+  (let ((result nil)
+        (cnts (make-hash-table :test #'equal)))
+    (loop for element in alist
+          do (let ((cnt (or (gethash (list element) cnts) 1)))
+               (push cnt result)
+               (setf (gethash (list element) cnts) (1+ cnt))))
+    (reverse result)))
+
+(defun replace-subsequence (expression alist-subsequence replacement k)
+  "Заменяет k-й элемент из alist-subsequence на replacement в expression."
+  (let* ((n (length expression))
+         (pref-cnts (map-to-found-count alist-subsequence))
+         (target-sequence (nth k alist-subsequence))
+         (ns (length target-sequence))
+         (target-pref-cnt (nth k pref-cnts))
+         (result (copy-list expression)))
+    (print 'test)
+    (print expression)
+    (print alist-subsequence)
+    (print replacement)
+    (print k)
+    (print 'test)
+    (loop for i from 0 to (- n ns)
+          do (if (equal (subseq expression i (+ i ns)) target-sequence)
+                 (progn 
+                   (decf target-pref-cnt)
+                   (when (= target-pref-cnt 0)
+                     (setf result (append 
+                                    (subseq result 0 i)
+                                    replacement
+                                    (subseq result (+ i ns))))
+                     (return-from replace-subsequence result)))))
     result))
 
-(defun interactive-replace-subsequences (expression rules)
+(defun left-choice (alist)
+  (declare (ignore alist))
+  0)
+
+(defun interactive-replace-subsequences (expression rules &key (alist-choicer #'left-choice))
   (labels ((iter (history)
             (let* ((expression (car history))
                    (subsequences 
@@ -22,11 +51,14 @@
                     (remove-if-not 
                       (alexandria-2:rcurry #'get-alternatives rules)
                       sorted-subsequences)))
+              (format t "~a~%" filtered-subsequences)
               (if (null filtered-subsequences)
                   (progn 
                    (format t "Thre are terminals only~%")
                    history)
-                  (let ((subsequence (first filtered-subsequences)))
+                  (let* ((sub-k (funcall alist-choicer filtered-subsequences))
+                         (subsequence (nth sub-k filtered-subsequences)))
+                    (print subsequence)
                     (format t "~v@{~a~:*~}~%" 10 #\=)
                     (format t "Expression: ~a~%" expression)
                     (format t "Available rules for ~a are:~%" subsequence)
@@ -49,8 +81,9 @@
                                 ((eql choice 'q) (format t "Exit.~%") history)
                                 ((and (integerp choice) (<= 0 choice) (< choice n-alts)
                                       (let ((new-expr (replace-subsequence 
-                                                        expression subsequence 
-                                                        (nth choice alternatives))))
+                                                        expression filtered-subsequences 
+                                                        (nth choice alternatives)
+                                                        sub-k)))
                                         (if (equal new-expr expression)
                                             (progn
                                               (format t "Substitution error!~%")
