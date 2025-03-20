@@ -55,16 +55,14 @@
                     (remove-if-not 
                       (rcurry #'get-alternatives rules)
                       subsequences)))
-              (format t "~a~%" filtered-subsequences)
+              (format t "Expression: ~a~%" expression)
               (if (null filtered-subsequences)
                   (progn 
                    (format t "Thre are terminals only~%")
                    history)
                   (let* ((sub-k (funcall alist-choicer filtered-subsequences))
                          (subsequence (nth sub-k filtered-subsequences)))
-                    (print subsequence)
                     (format t "~v@{~a~:*~}~%" 10 #\=)
-                    (format t "Expression: ~a~%" expression)
                     (format t "Available rules for ~a are:~%" subsequence)
                     (let* ((alternatives (get-alternatives subsequence rules))
                            (n-alts (length alternatives)))
