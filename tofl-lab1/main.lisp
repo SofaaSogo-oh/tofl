@@ -96,9 +96,12 @@
 ;; S ↝ BD ↝ aBbCD ↝ aaBbCbCD ↝ aaaBbCbCbCD ↝ aaaabbCbCbCD ↝ aaaabbbCCbCD ↝ aaaabbbCbCCD ↝ aaaabbbbCCCD ↝ aaaabbbbCCDc ↝ aaaabbbbCDcc ↝ aaaabbbbDccc ↝ aaaabbbbcccc
 ;;- ПСВ (облом)
 ;; S ↝ BD ↝ aBbCD ↝ aBbDc ↝ aBbcc ↝ aaBbCbcc ↝ aaBbbCcc ↝ aaaBbCbbCcc ↝ aaaBbbCbCcc ↝ aaaBbbbCCcc ↝ aaaabbbbCCcc
+;; Мб корректно а мб и нет
+;; S ↝ BD ↝ aBbCD ↝ aBbDc ↝ aaBbCbDc ↝ aaBbbCDc ↝ aaBbbDcc ↝ aaaBbCbbDcc ↝ aaaBbbCbDcc ↝ aaaBbbbCDcc ↝ aaaBbbbDccc ↝ aaaabbbbDccc ↝ aaaabbbbcccc
 (defun right-choice (alist)
   (format t "~a~%" alist)
   (1- (length alist)))
 
 (pprint-inference (interactive-replace-subsequences '(:S) *TASK3-RULES* :alist-choicer #'right-choice))
+(pprint-inference (interactive-replace-subsequences '(:S) *TASK3-RULES*))
 

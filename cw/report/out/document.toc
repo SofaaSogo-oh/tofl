@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Определение типа языка L}{3}{section.1}%
+\contentsline {section}{\numberline {2}Регулярный язык}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Приведите искомого множества к регулярному виду}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Построение регулярного выражения для искомого регулярного множества}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Получение регулярной грамматики}{4}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Построение леволинейной и праволинейной грамматик}{4}{subsubsection.2.3.1}%
