@@ -1,0 +1,63 @@
+Вариант 2.14
+\begin{align}\label{language-for-analyze}
+	L = \left\{ ((a,b)^2)^k \cdot ((b,c)^2)^m \colon \forall k > 0, m \geq 0,\, k,m \in \mathbb{Z} \right\} \\
+\end{align}
+\section{Определение типа языка L}
+Язык \cref{language-for-analyze} является регулярным. Докажем это, пользуясь замкнутостью класса регулярных языков.
+\begin{enumerate}
+	\item Множества \(\{a\}, \{b\}, \{c\}\) являются регулярными по определению;
+	\item Множества
+	      \begin{align}
+		      \{a\} \cup \{b\} =  \{a,b\} \\
+		      \{b\} \cup \{c\} =  \{b,c\}
+	      \end{align}
+	      регулярны, так как объединение регулярных множеств --- регулярное множество
+	\item Множества \begin{align}
+		      S_1 = \{a, b\}\{a,b\} \\
+		      S_2 = \{b, c\}\{b,c\}
+	      \end{align}
+	      регулярны , поскольку конкатенация регулярных множеств --- регулярное множество
+	\item Множества
+	      \begin{align}
+		      S_1^+ = S_1 S_1^* \\
+		      S_2^*
+	      \end{align}
+	      регулярны, посколько итерация регулярного множества --- регулярное множество и конкатенация регулярных множеств --- регулярное множество
+	\item Конкатенация регулярных множеств --- регулярное множество, а потому:
+	      \begin{align}
+		      S_3 = S_1^+ \cdot S_2^*
+	      \end{align}
+	      есть регулярное множество.
+\end{enumerate}
+\section{Регулярный язык}
+\subsection{Приведите искомого множества к регулярному виду}
+Регулярное множество:
+\begin{align}
+	\{a, b\}\cdot\{a, b\}^*\cdot\{b, c\}^*
+\end{align}
+\subsection{Построение регулярного выражения для искомого регулярного множества}
+\begin{align}
+	p=(a+b)^+(b+c)^*
+\end{align}
+\subsection{Получение регулярной грамматики}
+\subsubsection{Построение леволинейной и праволинейной грамматик}
+\begin{align}
+	% p=\ub{\ub{(\ub{\ub{a}_1+\ub{b}_2}_5)^+}_7\ub{(\ub{\ub{b}_3+\ub{c}_4}_6)^*}_8}_9
+	\ub{ % 9
+		\ub{ % 7
+			\left(\ub{\ub{a}_{1} + \ub{b}_{2}}_{5}\right)^{+}
+		}_{7} % 7
+		\cdot
+		\ub{
+			\left(\ub{\ub{b}_{3} + \ub{c}_{4}}_{6}\right)^{*}
+		}_{8} % 8
+	}_{9}% 9
+\end{align}
+\begin{align*}
+	G_1 = \grammatics{S_1}{\Sigma}{S_1 \to a}{S_1}                      \\
+	G_2 = \grammatics{S_2}{\Sigma}{S_2 \to b}{S_2}                      \\
+	G_2 = \grammatics{S_2}{\Sigma}{S_2 \to b}{S_2}                      \\
+	G_4 = \grammatics{S_4}{\Sigma}{S_4 \to c}{S_4}                      \\
+	G_5 = \grammatics{S_1, S_2, S_5}{\Sigma}{S_5 \to S_1\vert S_2}{S_5} \\
+	G_6 = \grammatics{S_3, S_4, S_6}{\Sigma}{S_6 \to S_3\vert S_4}{S_6} \\
+\end{align*}
