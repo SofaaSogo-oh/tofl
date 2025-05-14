@@ -267,6 +267,9 @@ OUTPUT out/content/task.aux
 INPUT ./content/task.tex
 INPUT ./content/task.tex
 INPUT content/task.tex
+INPUT ./content/empty.tex
+INPUT ./content/empty.tex
+INPUT content/empty.tex
 INPUT out/document.aux
 INPUT out/header.aux
 INPUT out/header.aux
