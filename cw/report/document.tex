@@ -71,12 +71,14 @@
 }
 \newcommand{\grammatics}[4]{%
   \rbr{%
-    \cbr{#1},%
-    #2,%
-    \cbr{\begin{array}{c}%
-      #3%
-    \end{array}},
-    #4%
+    \begin{array}{l}
+      \cbr{#1},%
+      #2,\\%
+      \cbr{\begin{array}{ll}%
+        #3%
+      \end{array}},
+      #4%
+    \end{array}
   }%
 }
 

@@ -60,7 +60,7 @@
 	% \ub{\rbr{%
 	% 		\ub{a}_{1} + \ub_{b}_{2}%
 	% 	}}_{9}%
-	\ub{\ub{\rbr{\ub{
+	p=\ub{\ub{\rbr{\ub{
 					\rbr{\ub{%
 							\ub{a}_{1} + \ub{b}_{2}%
 						}_{9}}
@@ -74,14 +74,124 @@
 						}_{11}}
 					\cdot
 					\rbr{\ub{%
-							\ub{a}_{7} + \ub{b}_{8}%
+							\ub{b}_{7} + \ub{c}_{8}%
 						}_{12}}}_{14}}^{*}}_{16}}_{17}
 \end{align}
 \begin{align*}
-	G_1 = \grammatics{S_1}{\Sigma}{S_1 \to a}{S_1}                      \\
-	G_2 = \grammatics{S_2}{\Sigma}{S_2 \to b}{S_2}                      \\
-	G_2 = \grammatics{S_2}{\Sigma}{S_2 \to b}{S_2}                      \\
-	G_4 = \grammatics{S_4}{\Sigma}{S_4 \to c}{S_4}                      \\
-	G_5 = \grammatics{S_1, S_2, S_5}{\Sigma}{S_5 \to S_1\vert S_2}{S_5} \\
-	G_6 = \grammatics{S_3, S_4, S_6}{\Sigma}{S_6 \to S_3\vert S_4}{S_6} \\
+	G_1 = \grammatics{S_1}{\Sigma}{S_1 \to a}{S_1}, G_2 = \grammatics{S_2}{\Sigma}{S_2 \to b}{S_2} \\
+	G_3 = \grammatics{S_3}{\Sigma}{S_3 \to a}{S_3}, G_4 = \grammatics{S_4}{\Sigma}{S_4 \to b}{S_4} \\
+	%
+	G_5 = \grammatics{S_5}{\Sigma}{S_5 \to b}{S_5}, G_6 = \grammatics{S_6}{\Sigma}{S_6 \to c}{S_6} \\
+	G_7 = \grammatics{S_7}{\Sigma}{S_7 \to b}{S_7}, G_8 = \grammatics{S_8}{\Sigma}{S_8 \to c}{S_8} \\
+	%
+	G_9 = \grammatics{S_9, S_1, S_2}{\Sigma}{
+	S_9 \to S_1|S_2                                                                                \\
+	S_1 \to a                                                                                      \\
+	S_2 \to b                                                                                      \\
+	}{S_9},
+	G_{10} = \grammatics{S_{10}, S_3, S_4}{\Sigma}{
+	S_{10} \to S_3|S_4                                                                             \\
+	S_3 \to a                                                                                      \\
+	S_4 \to b                                                                                      \\
+	}{S_{10}}                                                                                      \\
+	%
+	G_{11} = \grammatics{S_{11}, S_5, S_6}{\Sigma}{
+	S_{11} \to S_5|S_6                                                                             \\
+	S_5 \to b                                                                                      \\
+	S_6 \to c                                                                                      \\
+	}{S_{11}},
+	G_{12} = \grammatics{S_{12}, S_7, S_8}{\Sigma}{
+	S_{12} \to S_7|S_8                                                                             \\
+	S_7 \to b                                                                                      \\
+	S_8 \to c                                                                                      \\
+	}{S_{12}}                                                                                      \\
+	%
+	G'_{13} = \grammatics{S_9, S_1, S_3, S_{10}, S_3, S_4}{\Sigma}{
+	S_9 \to S_1|S_2                                                                                \\
+	S_1 \to a, S_2 \to b                                                                           \\
+	S_{10} \to S_3|S_4                                                                             \\
+	S_3 \to S_9a                                                                                   \\
+	S_4 \to S_9b                                                                                   \\
+	}{S_{10}}
+	G''_{13} = \grammatics{S_9, S_1, S_3, S_{10}, S_3, S_4}{\Sigma}{
+	S_9 \to S_1|S_2                                                                                \\
+	S_1 \to aS_{10}                                                                                \\
+	S_2 \to bS_{10}                                                                                \\
+	S_{10} \to S_3|S_4                                                                             \\
+	S_3 \to a, S_4 \to b                                                                           \\
+	}{S_9}                                                                                         \\
+	%
+\end{align*}
+\begin{align*}
+	G'_{14} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8}{\Sigma}{
+	S_{11} \to S_5|S_6                                      \\
+	S_5 \to b , S_6 \to c                                   \\
+	S_{12} \to S_7|S_8                                      \\
+	S_7 \to S_{11}b                                         \\
+	S_8 \to S_{11}c                                         \\
+	}{S_{12}},
+	G''_{14} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8}{\Sigma}{
+	S_{11} \to S_5|S_6                                      \\
+	S_5 \to bS_{12}                                         \\
+	S_6 \to cS_{12}                                         \\
+	S_{12} \to S_7|S_8                                      \\
+	S_7 \to b , S_8 \to c                                   \\
+	}{S_{11}}                                               \\
+	%
+	G'_{15} = \grammatics{S_9, S_1, S_3, S_{10}, S_3, S_4, S_{15}}{\Sigma}{
+	S_9 \to S_1|S_2                                         \\
+	S_1 \to S_{15}a|a                                       \\
+	S_2 \to S_{15}b|b                                       \\
+	S_{10} \to S_3|S_4                                      \\
+	S_3 \to S_9a                                            \\
+	S_4 \to S_9b                                            \\
+	S_{15} \to S_{10}                                       \\
+	}{S_{15}},
+	G''_{15} = \grammatics{S_9, S_1, S_3, S_{10}, S_3, S_4, S_{15}}{\Sigma}{
+	S_9 \to S_1|S_2                                         \\
+	S_1 \to aS_{10}                                         \\
+	S_2 \to bS_{10}                                         \\
+	S_{10} \to S_3|S_4                                      \\
+	S_3 \to aS_{15}|a                                       \\
+	S_4 \to bS_{15}|b                                       \\
+	S_{15} \to S_{9}                                        \\
+	}{S_{15}}                                               \\
+	%
+	G'_{16} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
+	S_{11} \to S_5|S_6                                      \\
+	S_5 \to S_{16}b|b                                       \\
+	S_6 \to S_{16}c|c                                       \\
+	S_{12} \to S_7|S_8                                      \\
+	S_7 \to S_{11}b                                         \\
+	S_8 \to S_{11}c                                         \\
+	S_{16} \to S_{12}|\varepsilon                           \\
+	}{S_{16}}
+	G''_{16} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
+	S_{11} \to S_5|S_6                                      \\
+	S_5 \to bS_{12}                                         \\
+	S_6 \to cS_{12}                                         \\
+	S_{12} \to S_7|S_8                                      \\
+	S_7 \to bS_{16}|b                                       \\
+	S_8 \to cS_{16}|c                                       \\
+	S_{16} \to S_{11}|\varepsilon                           \\
+	}{S_{16}}                                               \\
+	%
+	G'_{17} = \grammatics{S_9, S_1, S_3, S_{10}, S_3, S_4, S_{15}, S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
+	S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\
+	S_1 \to S_{15}a|a       & S_5 \to S_{16}b|S_{15}b       \\
+	S_2 \to S_{15}b|b       & S_6 \to S_{16}c|S_{15}c       \\
+	S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\
+	S_3 \to S_9a            & S_7 \to S_{11}b               \\
+	S_4 \to S_9b            & S_8 \to S_{11}c               \\
+	S_{15} \to S_{10}       & S_{16} \to S_{12}|\varepsilon \\
+	}{S_{16}}                                               \\
+	G''_{17} = \grammatics{S_9, S_1, S_3, S_{10}, S_3, S_4, S_{15}, S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
+	S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\
+	S_1 \to aS_{10}         & S_5 \to bS_{12}               \\
+	S_2 \to bS_{10}         & S_6 \to cS_{12}               \\
+	S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\
+	S_3 \to aS_{15}|aS_{16} & S_7 \to bS_{16}|b             \\
+	S_4 \to bS_{15}|bS_{16} & S_8 \to cS_{16}|c             \\
+	S_{15} \to S_{9}        & S_{16} \to S_{11}|\varepsilon \\
+	}{S_{15}}
 \end{align*}
