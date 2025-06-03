@@ -33,7 +33,7 @@
 \subsection{Приведите искомого множества к регулярному виду}
 Регулярное множество:
 \begin{align}
-	\{a, b\}\cdot\{a, b\}^*\cdot\{b, c\}^*
+	(\{a, b\}\cdot\{a, b\})^+\cdot(\{b, c\}\cdot \{b, c\})^*
 \end{align}
 \subsection{Построение регулярного выражения для искомого регулярного множества}
 \begin{align}
@@ -183,7 +183,7 @@
 	S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\
 	S_3 \to S_9a            & S_7 \to S_{11}b               \\
 	S_4 \to S_9b            & S_8 \to S_{11}c               \\
-	S_{15} \to S_{10}       & S_{16} \to S_{12}|\varepsilon \\
+	S_{15} \to S_{10}       & S_{16} \to S_{12}|S_{15}      \\
 	}{S_{16}}                                               \\
 	G''_{17} = \grammatics{S_9, S_1, S_2, S_{10}, S_3, S_4, S_{15}, S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
 	S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\
@@ -195,4 +195,5 @@
 	S_{15} \to S_{9}        & S_{16} \to S_{11}|\varepsilon \\
 	}{S_{15}}
 \end{align*}
-\input{content/empty.tex}
+\input{content/norm.tex}
+\input{content/fin_automata.tex}
