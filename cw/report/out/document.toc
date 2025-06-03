@@ -5,4 +5,4 @@
 \contentsline {subsection}{\numberline {2.3}Получение регулярной грамматики}{4}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Построение леволинейной и праволинейной грамматик}{4}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Приведение грамматики}{5}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Построение конечного автомата для приведенной грамматики}{14}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Построение конечного автомата для приведенной грамматики}{15}{subsubsection.2.3.3}%

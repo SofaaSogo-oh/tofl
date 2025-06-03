@@ -1,0 +1,61 @@
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (H) {$H$};
+		\node[state, right of=H] (S9) {$S_9$};
+		\node[state, above right of=S9] (S15) {$S_{15}$};
+		\node[state, right of=S15] (S11) {$S_{11}$};
+		\node[state, accepting, below right of=S11] (S16) {$S_{16}$};
+
+		% Переходы
+		\path
+		(H) edge node[above] {a, b} (S9)
+
+		(S9) edge[bend left=20] node[above] {a, b} (S15)
+		(S9) edge node[below] {a, b} (S16)
+
+		(S15) edge[bend left=20] node[below] {a, b} (S9)
+		(S15) edge node[above] {b, c} (S11)
+
+		(S11) edge[bend left=20] node[above] {b, c} (S16)
+
+		(S16) edge[bend left=20] node[below] {b, c} (S11);
+	\end{tikzpicture}
+
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->, % Стрелки от начала к концу
+			>=stealth', % Стиль стрелок
+			node distance=3cm, % Расстояние между узлами
+			every state/.style={thick, fill=gray!10}, % Стиль состояний
+			initial text={Начало} % Убираем текст "start" у начального состояния
+		]
+
+		% Состояния
+		\node[state, initial] (S15) {$S_{15}$}; % Жирный кружок (начальное)
+		\node[state, above right of=S15] (S10) {$S_{10}$};
+		\node[state, below right of=S10] (S16) {$S_{16}$};
+		\node[state, right of=S16] (S12) {$S_{12}$};
+		\node[state, accepting, above right of=S12] (F) {$F$}; % Двойной кружок (конечное)
+
+		% Переходы
+		\path
+		(S15) edge[bend left=20] node[above] {a, b} (S10)
+		(S10) edge[bend left=20] node[below] {a, b} (S15)
+		(S10) edge node[right] {a, b} (S16)
+		(S10) edge node[above] {a, b} (F)
+		(S16) edge[bend left=20] node[above] {b, c} (S12)
+		(S12) edge[bend left=20] node[below] {b, c} (S16)
+		(S12) edge node[above] {b, c} (F);
+	\end{tikzpicture}
+\end{figure}
