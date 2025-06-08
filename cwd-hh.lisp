@@ -29,7 +29,7 @@
 (defun rule-to-tedges (str)
  (let ((pre-res (extract-t str))
        (from (car (extract-s str))))
-  (loop for i in (cdr pre-res)
+  (loop for i in pre-res
    collect (list from i))))
 
 (defun extract-edges (grammar)

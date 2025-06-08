@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1749410295.41389 "out/document.xdv" "out/document.pdf" "out/document" 1749410295.57956 0
-  "out/document.xdv" 1749410295.25816 448500 1780db56f87782a8dd393f31924bf3ee "xelatex"
+["xdvipdfmx"] 1749413113.03811 "out/document.xdv" "out/document.pdf" "out/document" 1749413113.14593 0
+  "out/document.xdv" 1749413112.87813 446132 1d7db0a4b746dd7fede98ead58058045 "xelatex"
   (generated)
   "out/document.pdf"
   (rewritten before read)
-["xelatex"] 1749410290.57104 "document.tex" "out/document.xdv" "document" 1749410295.57606 0
+["xelatex"] 1749413108.11718 "document.tex" "out/document.xdv" "document" 1749413113.14161 0
   "/nix/store/1g3n0p1fzvb9yny2mk0w6vrxfvxsn124-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 6f066c20191d0ad6c5204d522aba644b ""
   "/nix/store/1g3n0p1fzvb9yny2mk0w6vrxfvxsn124-texlive-combined-2023/share/texmf-var/web2c/xetex/xelatex.fmt" 1 10586598 837b6811f42e01f8694dac6d217675c3 ""
   "/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -211,24 +211,24 @@
   "content/regular_automata/layer5.tex" 1749407387.02319 888 f45ff29d062cbd4390c490610c03394a ""
   "content/state_diagram.tex" 1748973203.95722 3471 60cb7b64fa55ded48e812f8f527f123f ""
   "content/task.tex" 1749408977.79813 10613 c265cf0974aefc4404c543189f4931ee ""
-  "content/unreachable.tex" 1748972826.92722 6021 ff6f7ce0bbed875580c0845936edac5c ""
+  "content/unreachable.tex" 1749413107.30813 4874 62838f93a91f50b1825db07a049fc801 ""
   "content/unreachable2.tex" 1748972870.80723 4388 cc8c37a5069d0a8071285a8e7bac437f ""
   "content/useless.tex" 1749410289.02816 4646 c3120e64aced261c9947a31eb36326af ""
   "content/useless2.tex" 1748972860.14723 2532 be305e1aed40d1d33795fb5a488f2eee ""
   "document.tex" 1748980189.69103 2388 c7b52882be261f659afeea3ff9a1d4f3 ""
   "hyphenat.tex" 1747379505.21382 125 116b92d07b1330e10bc395ebe81457cd ""
-  "out/content/chain.aux" 1749410293.22816 1488 47afdec9258035c7d1b8d65a27cd3d54 "xelatex"
-  "out/content/empty_rules.aux" 1749410293.04816 1494 a52bf9d45145e2728731e02ebf28e205 "xelatex"
-  "out/content/fin_automata_build.aux" 1749410293.40816 1685 8dfe6a987e39109ca2a93dd453d11b92 "xelatex"
-  "out/content/state_diagram.aux" 1749410293.61816 2002 b1d4f4e0fd9dc724dfcceb66870eb510 "xelatex"
-  "out/content/task.aux" 1749410292.80816 2973 76f7d92064b77c3830c5fb4b4efdfa93 "xelatex"
-  "out/content/unreachable.aux" 1749410293.00816 1508 90803090403b36addd891aa79d06006b "xelatex"
-  "out/content/unreachable2.aux" 1749410293.32816 1558 dfac0b635ecf790d5adb48511334d47a "xelatex"
-  "out/content/useless.aux" 1749410292.94816 1500 6d422e760491c07c0c78416484793c33 "xelatex"
-  "out/content/useless2.aux" 1749410293.28816 1552 c36aef2e3bdc06fa582af38c6c3be8ad "xelatex"
-  "out/document.aux" 1749410295.22816 4207 931c66ad4d2a051f49613ead1a3fcab0 "xelatex"
-  "out/document.out" 1749410295.25816 7361 f3ddddb0af37d3d80d164f04a6e71665 "xelatex"
-  "out/document.toc" 1749410295.25816 2944 24c89bdc33a3329e59a680adc1f36066 "xelatex"
+  "out/content/chain.aux" 1749413111.11813 1488 9b17b61e6d50e69ed0343cee73ed3805 "xelatex"
+  "out/content/empty_rules.aux" 1749413110.90813 1492 e5de39e31a28dafcc052e7f055d208c9 "xelatex"
+  "out/content/fin_automata_build.aux" 1749413111.27813 1685 ae8d26f1e330b985f28658427a98eed3 "xelatex"
+  "out/content/state_diagram.aux" 1749413111.54813 2002 177a5c5556bdf700c3511547f71224e1 "xelatex"
+  "out/content/task.aux" 1749413110.59813 2973 76f7d92064b77c3830c5fb4b4efdfa93 "xelatex"
+  "out/content/unreachable.aux" 1749413110.85813 1507 24875c63aab9dfbb2702ee09ee048398 "xelatex"
+  "out/content/unreachable2.aux" 1749413111.19813 1558 29747c0b71cff06da2ffe3fa0065200b "xelatex"
+  "out/content/useless.aux" 1749413110.81813 1500 6d422e760491c07c0c78416484793c33 "xelatex"
+  "out/content/useless2.aux" 1749413111.15813 1552 615b6581597245ac0b037775a69da1d0 "xelatex"
+  "out/document.aux" 1749413112.85813 4207 b7b260284e852e0ccbb8189470897a08 "xelatex"
+  "out/document.out" 1749413112.87813 7361 f3ddddb0af37d3d80d164f04a6e71665 "xelatex"
+  "out/document.toc" 1749413112.87813 2943 4b1fcc069c9357d093be66eace8e2209 "xelatex"
   (generated)
   "out/content/chain.aux"
   "out/content/empty_rules.aux"

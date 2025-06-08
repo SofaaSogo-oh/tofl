@@ -18,12 +18,12 @@
       "S_{10} \to S_3|S_4            & S_{12} \to S_7|S_8      \\"
       "S_3 \to aS_{15}|aS_{16}       & S_7 \to bS_{16}|b       \\"
       "S_4 \to bS_{15}|bS_{16}       & S_8 \to cS_{16}|c       \\"
-      "S_{15} \to S_{9}|S_{16}       & S_{16} \to S_{11}       \\"))
+      "S_{15} \to S_9|S_{16}       & S_{16} \to S_{11}       \\"))
   (defparameter *rg-18*
    (concatenate 'string
       "S_9 \to S_1|S_2           & S_{11} \to S_5|S_6            \\"
-      "S_1 \to aS_{10}           & S_5 \to bS_{12}               \\"
-      "S_2 \to bS_{10}           & S_6 \to cS_{12}               \\"
+      "S_1 \to a S_{10}           & S_5 \to bS_{12}               \\"
+      "S_2 \to b S_{10}           & S_6 \to cS_{12}               \\"
       "S_{10} \to S_3|S_4        & S_{12} \to S_7|S_8            \\"
       "S_3 \to aS_{15}|aS_{16}|a & S_7 \to bS_{16}|b             \\"
       "S_4 \to bS_{15}|bS_{16}|b & S_8 \to cS_{16}|c             \\"
@@ -72,7 +72,8 @@
   (defparameter *direct-graph2* (extract-direct-graph *grammar2*)))
 
 
-(print-graph *reverse-graph2*)
+(print-graph *reverse-graph*)
+(print-graph *DIRECT-GRAPH*)
 
 (get-line *reverse-graph1* (read))
 (get-line *reverse-graph2* (read))
