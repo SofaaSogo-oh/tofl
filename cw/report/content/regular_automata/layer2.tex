@@ -1,0 +1,205 @@
+\newpage
+Для выражения \(a+b\) строим КА \(M_9 = (Q_9, \Sigma, \delta_9, q_{90}, F_9)\) следующим образом:
+\begin{enumerate}
+	\item Множество состояний автомата \(M_9\) получается путем объединений множества состояний автоматов \(M_1\) и \(M_2\) и нового состояния \(q_{90}\)
+	      \begin{align*}
+		      Q_9 = Q_1 \cup Q_2 \cup \cbr{q_{90}} = \cbr{q_{10}, q_{11}, q_{20}, q_{21}, q_{90}}
+	      \end{align*}
+	\item \(q_{90}\) --- начальное состояние;
+	\item Конечные состояния определяются как объединение конечных состояний \(M_1\) и \(M_2\)
+	      \begin{align*}
+		      F_{9} = F_{1} \cup F_{2} = \cbr{q_{11}, q_{21}}
+	      \end{align*}
+	\item Множество переходов \(\delta_9\) строится:
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_9(q_{90}, a) = \cbr{q_{11}} & \delta_9(q_{90}, b) = \cbr{q_{21}} \\
+			      \delta_9(q_{10}, a) = \cbr{q_{11}}                                      \\
+			      \delta_9(q_{20}, b) = \cbr{q_{21}}
+		      \end{array}
+	      \end{align*}
+	      Граф переходов построенного КА \(M_9\) примет вид
+	      \begin{figure}[h!]
+		      \centering
+		      \begin{tikzpicture}[
+				      ->,
+				      >=stealth',
+				      node distance=2.5cm,
+				      every state/.style={thick, fill=gray!10},
+				      initial text={Начало}
+			      ]
+
+			      % Состояния
+			      \node[state, initial] (q90) {$q_{90}$};
+
+			      \node[state, above  of=q90] (q10) {$q_{10}$};
+			      \node[state, accepting, right of=q10] (q11) {$q_{11}$};
+
+			      \node[state, below  of=q90] (q20) {$q_{20}$};
+			      \node[state, accepting, right of=q20] (q21) {$q_{21}$};
+
+			      % Переходы
+			      \path
+			      (q10) edge node[above] {a} (q11)
+			      (q20) edge node[below] {b} (q21)
+			      (q90) edge node[above] {a} (q11)
+			      (q90) edge node[below] {b} (q21)
+			      ;
+		      \end{tikzpicture}
+		      \caption{Диаграмма состояний НКА \(M_9\)}
+	      \end{figure}
+\end{enumerate}
+\newpage
+Для выражения \(a+b\) строим КА \(M_{10} = (Q_{10}, \Sigma, \delta_{10}, q_{100}, F_{10})\) следующим образом:
+\begin{enumerate}
+	\item Множество состояний автомата \(M_{10}\) получается путем объединений множества состояний автоматов \(M_1\) и \(M_2\) и нового состояния \(q_{100}\)
+	      \begin{align*}
+		      Q_{10} = Q_3 \cup Q_4 \cup \cbr{q_{100}} = \cbr{q_{30}, q_{31}, q_{40}, q_{41}, q_{100}}
+	      \end{align*}
+	\item \(q_{100}\) --- начальное состояние;
+	\item Конечные состояния определяются как объединение конечных состояний \(M_3\) и \(M_4\)
+	      \begin{align*}
+		      F_{10} = F_{3} \cup F_{4} = \cbr{q_{31}, q_{41}}
+	      \end{align*}
+	\item Множество переходов \(\delta\) строится:
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{10}(q_{100}, a) = \cbr{q_{31}} & \delta_{10}(q_{100}, b) = \cbr{q_{41}} \\
+			      \delta_{10}(q_{30}, a) = \cbr{q_{31}}                                           \\
+			      \delta_{10}(q_{40}, b) = \cbr{q_{41}}
+		      \end{array}
+	      \end{align*}
+	      Граф переходов построенного КА \(M_{10}\) примет вид
+	      \begin{figure}[h!]
+		      \centering
+		      \begin{tikzpicture}[
+				      ->,
+				      >=stealth',
+				      node distance=2.5cm,
+				      every state/.style={thick, fill=gray!10},
+				      initial text={Начало}
+			      ]
+
+			      % Состояния
+			      \node[state, initial] (q100) {$q_{100}$};
+
+			      \node[state, above  of=q100] (q30) {$q_{30}$};
+			      \node[state, accepting, right of=q30] (q31) {$q_{31}$};
+
+			      \node[state, below  of=q100] (q40) {$q_{40}$};
+			      \node[state, accepting, right of=q40] (q41) {$q_{41}$};
+
+			      % Переходы
+			      \path
+			      (q30) edge node[above] {a} (q31)
+			      (q40) edge node[below] {b} (q41)
+			      (q100) edge node[above] {a} (q31)
+			      (q100) edge node[below] {b} (q41)
+			      ;
+		      \end{tikzpicture}
+		      \caption{Диаграмма состояний НКА \(M_{10}\)}
+	      \end{figure}
+\end{enumerate}
+\newpage
+Для выражения \(b+c\) строим КА \(M_{11} = (Q_{11}, \Sigma, \delta_{11}, q_{110}, F_{11})\) следующим образом:
+\begin{enumerate}
+	\item Множество состояний автомата \(M_{11}\) получается путем объединений множества состояний автоматов \(M_1\) и \(M_2\) и нового состояния \(q_{110}\)
+	      \begin{align*}
+		      Q_{11} = Q_1 \cup Q_2 \cup \cbr{q_{110}} = \cbr{q_{50}, q_{51}, q_{60}, q_{61}, q_{110}}
+	      \end{align*}
+	\item \(q_{110}\) --- начальное состояние;
+	\item Конечные состояния определяются как объединение конечных состояний \(M_5\) и \(M_6\)
+	      \begin{align*}
+		      F_{11} = F_{5} \cup F_{6} = \cbr{q_{51}, q_{61}}
+	      \end{align*}
+	\item Множество переходов \(\delta\) строится:
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{11}(q_{110}, b) = \cbr{q_{51}} & \delta_{11}(q_{110}, c) = \cbr{q_{61}} \\
+			      \delta_{11}(q_{50}, b) = \cbr{q_{51}}                                           \\
+			      \delta_{11}(q_{60}, c) = \cbr{q_{61}}
+		      \end{array}
+	      \end{align*}
+	      Граф переходов построенного КА \(M_{11}\) примет вид
+	      \begin{figure}[h!]
+		      \centering
+		      \begin{tikzpicture}[
+				      ->,
+				      >=stealth',
+				      node distance=2.5cm,
+				      every state/.style={thick, fill=gray!10},
+				      initial text={Начало}
+			      ]
+
+			      % Состояния
+			      \node[state, initial] (q110) {$q_{110}$};
+
+			      \node[state, above  of=q110] (q50) {$q_{50}$};
+			      \node[state, accepting, right of=q50] (q51) {$q_{51}$};
+
+			      \node[state, below  of=q110] (q60) {$q_{60}$};
+			      \node[state, accepting, right of=q60] (q61) {$q_{61}$};
+
+			      % Переходы
+			      \path
+			      (q50) edge node[above] {b} (q51)
+			      (q60) edge node[below] {c} (q61)
+			      (q110) edge node[above] {b} (q51)
+			      (q110) edge node[below] {c} (q61)
+			      ;
+		      \end{tikzpicture}
+		      \caption{Диаграмма состояний НКА \(M_{11}\)}
+	      \end{figure}
+\end{enumerate}
+
+\newpage
+Для выражения \(b+c\) строим КА \(M_{12} = (Q_{12}, \Sigma, \delta_{12}, q_{120}, F_{12})\) следующим образом:
+\begin{enumerate}
+	\item Множество состояний автомата \(M_{12}\) получается путем объединений множества состояний автоматов \(M_1\) и \(M_2\) и нового состояния \(q_{120}\)
+	      \begin{align*}
+		      Q_{12} = Q_1 \cup Q_2 \cup \cbr{q_{120}} = \cbr{q_{70}, q_{71}, q_{80}, q_{81}, q_{120}}
+	      \end{align*}
+	\item \(q_{120}\) --- начальное состояние;
+	\item Конечные состояния определяются как объединение конечных состояний \(M_7\) и \(M_8\)
+	      \begin{align*}
+		      F_{12} = F_{7} \cup F_{8} = \cbr{q_{71}, q_{81}}
+	      \end{align*}
+	\item Множество переходов \(\delta\) строится:
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{12}(q_{120}, b) = \cbr{q_{71}} & \delta_{12}(q_{120}, c) = \cbr{q_{81}} \\
+			      \delta_{12}(q_{70}, b) = \cbr{q_{71}}                                           \\
+			      \delta_{12}(q_{80}, c) = \cbr{q_{81}}
+		      \end{array}
+	      \end{align*}
+	      Граф переходов построенного КА \(M_{12}\) примет вид
+	      \begin{figure}[h!]
+		      \centering
+		      \begin{tikzpicture}[
+				      ->,
+				      >=stealth',
+				      node distance=2.5cm,
+				      every state/.style={thick, fill=gray!10},
+				      initial text={Начало}
+			      ]
+
+			      % Состояния
+			      \node[state, initial] (q120) {$q_{120}$};
+
+			      \node[state, above  of=q120] (q70) {$q_{70}$};
+			      \node[state, accepting, right of=q70] (q71) {$q_{71}$};
+
+			      \node[state, below  of=q120] (q80) {$q_{80}$};
+			      \node[state, accepting, right of=q80] (q81) {$q_{81}$};
+
+			      % Переходы
+			      \path
+			      (q70) edge node[above] {b} (q71)
+			      (q80) edge node[below] {c} (q81)
+			      (q120) edge node[above] {b} (q71)
+			      (q120) edge node[below] {c} (q81)
+			      ;
+		      \end{tikzpicture}
+		      \caption{Диаграмма состояний НКА \(M_{12}\)}
+	      \end{figure}
+\end{enumerate}

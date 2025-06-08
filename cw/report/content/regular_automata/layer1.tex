@@ -1,0 +1,242 @@
+Для выражения \(a\) конечный автомат примет вид
+\begin{align*}
+	M_1 = \rbr{\cbr{q_{10}, q_{11}}, \Sigma, \delta_1, q_{10}, \cbr{q_{11}}},
+\end{align*}
+где множество переходов \(\delta_1\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_1(q_{10}, a) = \cbr{q_{11}}
+\end{align*}
+Граф переходов построенного КА \(M_1\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q10) {$q_{10}$};
+		\node[state, accepting, right of=q10] (q11) {$q_{11}$};
+
+		% Переходы
+		\path
+		(q10) edge node[above] {a} (q11);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_1\)}
+\end{figure}
+
+Для выражения \(b\) конечный автомат примет вид
+\begin{align*}
+	M_2 = \rbr{\cbr{q_{20}, q_{21}}, \Sigma, \delta_2, q_{20}, \cbr{q_{21}}},
+\end{align*}
+где множество переходов \(\delta_2\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_2(q_{20}, b) = \cbr{q_{21}}
+\end{align*}
+Граф переходов построенного КА \(M_2\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q20) {$q_{20}$};
+		\node[state, accepting, right of=q20] (q21) {$q_{21}$};
+
+		% Переходы
+		\path
+		(q20) edge node[above] {b} (q21);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_2\)}
+\end{figure}
+
+Для выражения \(a\) конечный автомат примет вид
+\begin{align*}
+	M_3 = \rbr{\cbr{q_{30}, q_{31}}, \Sigma, \delta_3, q_{30}, \cbr{q_{31}}},
+\end{align*}
+где множество переходов \(\delta_3\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_3(q_{30}, a) = \cbr{q_{31}}
+\end{align*}
+Граф переходов построенного КА \(M_3\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q30) {$q_{30}$};
+		\node[state, accepting, right of=q30] (q31) {$q_{31}$};
+
+		% Переходы
+		\path
+		(q30) edge node[above] {a} (q31);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_3\)}
+\end{figure}
+
+Для выражения \(b\) конечный автомат примет вид
+\begin{align*}
+	M_4 = \rbr{\cbr{q_{40}, q_{41}}, \Sigma, \delta_4, q_{40}, \cbr{q_{41}}},
+\end{align*}
+где множество переходов \(\delta_4\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_4(q_{40}, b) = \cbr{q_{41}}
+\end{align*}
+Граф переходов построенного КА \(M_4\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q40) {$q_{40}$};
+		\node[state, accepting, right of=q40] (q41) {$q_{41}$};
+
+		% Переходы
+		\path
+		(q40) edge node[above] {b} (q41);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_4\)}
+\end{figure}
+
+Для выражения \(b\) конечный автомат примет вид
+\begin{align*}
+	M_5 = \rbr{\cbr{q_{50}, q_{51}}, \Sigma, \delta_5, q_{50}, \cbr{q_{51}}},
+\end{align*}
+где множество переходов \(\delta_5\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_5(q_{50}, b) = \cbr{q_{51}}
+\end{align*}
+Граф переходов построенного КА \(M_5\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q50) {$q_{50}$};
+		\node[state, accepting, right of=q50] (q51) {$q_{51}$};
+
+		% Переходы
+		\path
+		(q50) edge node[above] {b} (q51);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_5\)}
+\end{figure}
+
+Для выражения \(c\) конечный автомат примет вид
+\begin{align*}
+	M_6 = \rbr{\cbr{q_{60}, q_{61}}, \Sigma, \delta_6, q_{60}, \cbr{q_{61}}},
+\end{align*}
+где множество переходов \(\delta_5\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_6(q_{60}, c) = \cbr{q_{61}}
+\end{align*}
+Граф переходов построенного КА \(M_6\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q60) {$q_{60}$};
+		\node[state, accepting, right of=q60] (q61) {$q_{61}$};
+
+		% Переходы
+		\path
+		(q60) edge node[above] {c} (q61);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_6\)}
+\end{figure}
+
+\newpage
+
+Для выражения \(b\) конечный автомат примет вид
+\begin{align*}
+	M_7 = \rbr{\cbr{q_{70}, q_{71}}, \Sigma, \delta_7, q_{70}, \cbr{q_{71}}},
+\end{align*}
+где множество переходов \(\delta_7\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_7(q_{70}, b) = \cbr{q_{51}}
+\end{align*}
+Граф переходов построенного КА \(M_7\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q70) {$q_{70}$};
+		\node[state, accepting, right of=q70] (q71) {$q_{71}$};
+
+		% Переходы
+		\path
+		(q70) edge node[above] {b} (q71);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_7\)}
+\end{figure}
+
+
+Для выражения \(c\) конечный автомат примет вид
+\begin{align*}
+	M_8 = \rbr{\cbr{q_{80}, q_{81}}, \Sigma, \delta_8, q_{80}, \cbr{q_{81}}},
+\end{align*}
+где множество переходов \(\delta_5\) автомата будет содержать переходы вида
+\begin{align*}
+	\delta_8(q_{80}, c) = \cbr{q_{81}}
+\end{align*}
+Граф переходов построенного КА \(M_8\) примет вид
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q80) {$q_{80}$};
+		\node[state, accepting, right of=q80] (q81) {$q_{81}$};
+
+		% Переходы
+		\path
+		(q80) edge node[above] {c} (q81);
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_8\)}
+\end{figure}

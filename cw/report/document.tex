@@ -6,6 +6,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 
+\usepackage[russian]{babel}
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -14,6 +15,15 @@
 }
 \usepackage[russian]{cleveref}
 \usepackage{mathtools}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\makeatletter
+\newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+\newcommand\subsubsubsubsection{\@startsection{subparagraph}{5}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+\makeatother
 
 \usepackage{mathspec}
 \usepackage{fontspec}
@@ -22,6 +32,7 @@
 \usepackage{xecyr}
 \usepackage{minted}
 \usepackage{multirow}
+\usepackage{cleveref}
 \usemintedstyle{pastie}
 \setminted{fontsize=\small, linenos, breaklines}
 \input{hyphenat.tex}
@@ -93,9 +104,11 @@
 \usetikzlibrary{automata, positioning, arrows}
 
 \begin{document}
-\include{header}
+% \include{header}
 \tableofcontents
 \include{content/task}
-
+\input{content/norm.tex}
+\input{content/fin_automata.tex}
+\input{content/regular_automata.tex}
 \end{document}
 

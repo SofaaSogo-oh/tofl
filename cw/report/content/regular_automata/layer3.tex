@@ -1,0 +1,169 @@
+\newpage
+Для выражения \((a+b)(a+b)\) строим КА \(M_{13} = (Q_{13}, \Sigma, \delta_{13}, q_{130}, F_{13})\):
+\begin{enumerate}
+	\item множество состояний автомата \(M_{13}\) получается путём объединения множеств состояний исходных автоматов
+	      \begin{align*}
+		      Q_{13} = Q_{9} \cup Q_{10} = \cbr{q_{10}, q_{11}, q_{20}, q_{21}, q_{90},q_{30}, q_{31}, q_{40}, q_{41}, q_{100} };
+	      \end{align*}
+	\item начальным состоянием результирующего автомата \(M_{13}\) будет начальное состояние автомата \(M_9\)
+	      \begin{align*}
+		      q_{130} \equiv q_{90};
+	      \end{align*}
+	\item множество заключительных состояний \(F_{13}\) будет содержать только множество заключительных состояний автомата \(M_{10}\)
+	      \begin{align*}
+		      F_{13} = F_{10} = \cbr{q_{31}, q_{41}}
+	      \end{align*}
+	\item множество переходов \(\delta_{13}\) автомата \(M_{13}\) будет содержать переходы автомата \(M_{9}\) кроме переходов из заключительных состояний
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{13}(q_{90}, a)  = \delta_9(q_{90}, a) = \cbr{q_{11}} & \delta_{13}(q_{90}, b)  =  \delta_9(q_{90}, b) = \cbr{q_{21}} \\
+			      \delta_{13}(q_{10}, a)  = \delta_9(q_{10}, a) = \cbr{q_{11}} & \delta_{13}(q_{20}, b)  = \delta_9(q_{20}, b) = \cbr{q_{21}},
+		      \end{array}
+	      \end{align*}
+	      а также добавляются переходы из заключительных состояний первого автомата в состояния второго, в которые имеются переходы из начальных состояний второго автомата
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{13}(q_{11}, a)  = \varnothing \cup \cbr{q_{31}} = \cbr{q_{31}} & \delta_{13}(q_{11}, b)  = \varnothing \cup \cbr{q_{41}} = \cbr{q_{41}}  \\
+			      \delta_{13}(q_{21}, a)  = \varnothing \cup \cbr{q_{31}} = \cbr{q_{31}} & \delta_{13}(q_{21}, b)  = \varnothing \cup \cbr{q_{41}} = \cbr{q_{41}}.
+		      \end{array}
+	      \end{align*}
+	      Кроме этого добавляются все состояния автомата \(M_{10}\)
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{13}(q_{100}, a)=      \delta_{10}(q_{100}, a) = \cbr{q_{31}} & \delta_{13}(q_{100}, b) =\delta_{10}(q_{100}, b) = \cbr{q_{41}} \\
+			      \delta_{13}(q_{30}, a) =      \delta_{10}(q_{30}, a) = \cbr{q_{31}}  & \delta_{13}(q_{40}, b)  =\delta_{10}(q_{40}, b) = \cbr{q_{41}}
+		      \end{array}
+	      \end{align*}
+\end{enumerate}
+Граф переходов построенного КА \(M_{13}\) примет вид:
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q90) {$q_{90}$};
+
+		\node[state, above  of=q90] (q10) {$q_{10}$};
+		\node[state,  right of=q10] (q11) {$q_{11}$};
+
+		\node[state, below  of=q90] (q20) {$q_{20}$};
+		\node[state,  right of=q20] (q21) {$q_{21}$};
+
+		\node[state, accepting, right of=q11] (q31) {$q_{31}$};
+		\node[state, accepting, right of=q21] (q41) {$q_{41}$};
+		\node[state, right of=q31] (q30) {$q_{30}$};
+		\node[state, right of=q41] (q40) {$q_{40}$};
+		\node[state, below of=q30] (q100) {$q_{100}$};
+
+		% Переходы
+		\path
+		(q10) edge node[above] {a} (q11)
+		(q20) edge node[below] {b} (q21)
+		(q90) edge node[above] {a} (q11)
+		(q90) edge node[below] {b} (q21)
+
+		(q30) edge node[above] {a} (q31)
+		(q40) edge node[below] {b} (q41)
+		(q100) edge node[above] {a} (q31)
+		(q100) edge node[below] {b} (q41)
+
+		(q11) edge node[above] {a} (q31)
+		(q21) edge node[above] {a} (q31)
+
+		(q11) edge node[below] {b} (q41)
+		(q21) edge node[below] {b} (q41)
+		;
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_{13}\)}
+\end{figure}
+
+\newpage
+Для выражения \((b+c)(b+c)\) строим КА \(M_{14} = (Q_{14}, \Sigma, \delta_{14}, q_{140}, F_{14})\):
+\begin{enumerate}
+	\item множество состояний автомата \(M_{14}\) получается путём объединения множеств состояний исходных автоматов
+	      \begin{align*}
+		      Q_{14} = Q_{11} \cup Q_{12} = \cbr{q_{50}, q_{51}, q_{60}, q_{61}, q_{110}, q_{70}, q_{71}, q_{80}, q_{81}, q_{120}};
+	      \end{align*}
+	\item начальным состоянием результирующего автомата \(M_{14}\) будет начальное состояние автомата \(M_{11}\)
+	      \begin{align*}
+		      q_{140} \equiv q_{110};
+	      \end{align*}
+	\item множество заключительных состояний \(F_{14}\) будет содержать только множество заключительных состояний автомата \(M_{12}\)
+	      \begin{align*}
+		      F_{14} = F_{12} = \cbr{q_{71}, q_{81}}
+	      \end{align*}
+	\item множество переходов \(\delta_{14}\) автомата \(M_{14}\) будет содержать переходы автомата \(M_{11}\) кроме переходов из заключительных состояний
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{14}(q_{110}, b) = \delta_{11}(q_{110}, b) = \cbr{q_{51}} & \delta_{14}(q_{110}, c) = \delta_{11}(q_{110}, c) = \cbr{q_{61}} \\
+			      \delta_{14}(q_{50}, b)  = \delta_{11}(q_{50}, b) = \cbr{q_{51}}  & \delta_{14}(q_{60}, c)  = \delta_{11}(q_{60}, c) = \cbr{q_{61}}
+		      \end{array}
+	      \end{align*}
+	      а также добавляются переходы из заключительных состояний первого автомата в состояния второго, в которые имеются переходы из начальных состояний второго автомата
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{14}(q_{51}, b)  = \varnothing \cup \cbr{q_{71}} = \cbr{q_{71}} & \delta_{14}(q_{51}, c)  = \varnothing \cup \cbr{q_{81}} = \cbr{q_{81}}  \\
+			      \delta_{14}(q_{61}, b)  = \varnothing \cup \cbr{q_{71}} = \cbr{q_{71}} & \delta_{14}(q_{61}, c)  = \varnothing \cup \cbr{q_{81}} = \cbr{q_{81}}.
+		      \end{array}
+	      \end{align*}
+	      Кроме этого добавляются все состояния автомата \(M_{12}\)
+	      \begin{align*}
+		      \begin{array}{ll}
+			      \delta_{14}(q_{120}, b) =\delta_{12}(q_{120}, b) = \cbr{q_{71}} & \delta_{14}(q_{120}, c) =\delta_{12}(q_{120}, c) = \cbr{q_{81}} \\
+			      \delta_{14}(q_{70}, b)  =\delta_{12}(q_{70}, b) = \cbr{q_{71}}  & \delta_{14}(q_{80}, c)  =\delta_{12}(q_{80}, c) = \cbr{q_{81}}
+		      \end{array}
+	      \end{align*}
+\end{enumerate}
+Граф переходов построенного КА \(M_{14}\) примет вид:
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q110) {$q_{110}$};
+
+		\node[state, above  of=q110] (q50) {$q_{50}$};
+		\node[state,  right of=q50] (q51) {$q_{51}$};
+
+		\node[state, below  of=q110] (q60) {$q_{60}$};
+		\node[state,  right of=q60] (q61) {$q_{61}$};
+
+		\node[state, accepting, right of=q51] (q71) {$q_{71}$};
+		\node[state, accepting, right of=q61] (q81) {$q_{81}$};
+		\node[state, right of=q71] (q70) {$q_{70}$};
+		\node[state, right of=q81] (q80) {$q_{80}$};
+		\node[state, above of=q80] (q120) {$q_{120}$};
+
+		% Переходы
+		\path
+		(q50) edge node[above] {b} (q51)
+		(q60) edge node[below] {c} (q61)
+		(q110) edge node[above] {b} (q11)
+		(q110) edge node[below] {c} (q21)
+
+		(q70) edge node[above] {b} (q71)
+		(q80) edge node[below] {c} (q81)
+		(q120) edge node[above] {b} (q71)
+		(q120) edge node[below] {c} (q81)
+
+		(q51) edge node[above] {b} (q71)
+		(q61) edge node[above] {b} (q71)
+
+		(q51) edge node[below] {c} (q81)
+		(q61) edge node[below] {c} (q81)
+		;
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_{14}\)}
+\end{figure}

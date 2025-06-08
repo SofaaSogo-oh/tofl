@@ -1,6 +1,6 @@
 Вариант 2.14
 \begin{align}\label{language-for-analyze}
-	L = \left\{ ((a,b)^2)^k \cdot ((b,c)^2)^m \colon \forall k > 0, m \geq 0,\, k,m \in \mathbb{Z} \right\} \\
+	L = \left\{ ((a,b)^2)^k \cdot ((b,c)^2)^m \colon \forall k \geq 0, m > 0,\, k,m \in \mathbb{Z} \right\}
 \end{align}
 \section{Определение типа языка L}
 Язык \cref{language-for-analyze} является регулярным. Докажем это, пользуясь замкнутостью класса регулярных языков.
@@ -19,13 +19,13 @@
 	      регулярны , поскольку конкатенация регулярных множеств --- регулярное множество
 	\item Множества
 	      \begin{align}
-		      S_1^+ = S_1 S_1^* \\
-		      S_2^*
+		      S_1^* \\
+		      S_2^+ = S_2 \cdot S_2^*
 	      \end{align}
 	      регулярны, посколько итерация регулярного множества --- регулярное множество и конкатенация регулярных множеств --- регулярное множество
 	\item Конкатенация регулярных множеств --- регулярное множество, а потому:
 	      \begin{align}
-		      S_3 = S_1^+ \cdot S_2^*
+		      S_3 = S_1^* \cdot S_2^+
 	      \end{align}
 	      есть регулярное множество.
 \end{enumerate}
@@ -33,15 +33,15 @@
 \subsection{Приведите искомого множества к регулярному виду}
 Регулярное множество:
 \begin{align}
-	(\{a, b\}\cdot\{a, b\})^+\cdot(\{b, c\}\cdot \{b, c\})^*
+	(\{a, b\}\cdot\{a, b\})^*\cdot(\{b, c\}\cdot \{b, c\})^+
 \end{align}
 \subsection{Построение регулярного выражения для искомого регулярного множества}
-\begin{align}
-	p=((a+b)(a+b))^+((b+c)(b+c))^*
+\begin{align}\label{eq:regex}
+	p=((a+b)(a+b))^*((b+c)(b+c))^+
 \end{align}
 \subsection{Получение регулярной грамматики}
 \subsubsection{Построение леволинейной и праволинейной грамматик}
-\begin{align}
+\begin{align}\label{eq:regex-desc}
 	% p=\ub{\ub{(\ub{\ub{a}_1+\ub{b}_2}_5)^+}_7\ub{(\ub{\ub{b}_3+\ub{c}_4}_6)^*}_8}_9
 	% \ub{ % 9
 	% 	\ub{ % 7
@@ -67,7 +67,7 @@
 					\cdot
 					\rbr{\ub{%
 							\ub{a}_{3} + \ub{b}_{4}%
-						}_{10}}}_{13}}^+}_{15}
+						}_{10}}}_{13}}^*}_{15}
 		\cdot
 		\ub{\rbr{\ub{\rbr{\ub{%
 							\ub{b}_{5} + \ub{c}_{6}%
@@ -75,7 +75,7 @@
 					\cdot
 					\rbr{\ub{%
 							\ub{b}_{7} + \ub{c}_{8}%
-						}_{12}}}_{14}}^{*}}_{16}}_{17}
+						}_{12}}}_{14}}^{+}}_{16}}_{17}
 \end{align}
 \begin{align*}
 	G_1 = \grammatics{S_1}{\Sigma}{S_1 \to a}{S_1}, G_2 = \grammatics{S_2}{\Sigma}{S_2 \to b}{S_2} \\
@@ -124,76 +124,74 @@
 \end{align*}
 \begin{align*}
 	G'_{14} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8}{\Sigma}{
-	S_{11} \to S_5|S_6                                      \\
-	S_5 \to b , S_6 \to c                                   \\
-	S_{12} \to S_7|S_8                                      \\
-	S_7 \to S_{11}b                                         \\
-	S_8 \to S_{11}c                                         \\
+	S_{11} \to S_5|S_6                                            \\
+	S_5 \to b , S_6 \to c                                         \\
+	S_{12} \to S_7|S_8                                            \\
+	S_7 \to S_{11}b                                               \\
+	S_8 \to S_{11}c                                               \\
 	}{S_{12}},
 	G''_{14} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8}{\Sigma}{
-	S_{11} \to S_5|S_6                                      \\
-	S_5 \to bS_{12}                                         \\
-	S_6 \to cS_{12}                                         \\
-	S_{12} \to S_7|S_8                                      \\
-	S_7 \to b , S_8 \to c                                   \\
-	}{S_{11}}                                               \\
+	S_{11} \to S_5|S_6                                            \\
+	S_5 \to bS_{12}                                               \\
+	S_6 \to cS_{12}                                               \\
+	S_{12} \to S_7|S_8                                            \\
+	S_7 \to b , S_8 \to c                                         \\
+	}{S_{11}}                                                     \\
 	%
 	G'_{15} = \grammatics{S_9, S_1, S_2, S_{10}, S_3, S_4, S_{15}}{\Sigma}{
-	S_9 \to S_1|S_2                                         \\
-	S_1 \to S_{15}a|a                                       \\
-	S_2 \to S_{15}b|b                                       \\
-	S_{10} \to S_3|S_4                                      \\
-	S_3 \to S_9a                                            \\
-	S_4 \to S_9b                                            \\
-	S_{15} \to S_{10}                                       \\
+	S_9 \to S_1|S_2                                               \\
+	S_1 \to S_{15}a|a                                             \\
+	S_2 \to S_{15}b|b                                             \\
+	S_{10} \to S_3|S_4                                            \\
+	S_3 \to S_9a                                                  \\
+	S_4 \to S_9b                                                  \\
+	S_{15} \to S_{10}|\varepsilon                                 \\
 	}{S_{15}},
 	G''_{15} = \grammatics{S_9, S_1, S_2, S_{10}, S_3, S_4, S_{15}}{\Sigma}{
-	S_9 \to S_1|S_2                                         \\
-	S_1 \to aS_{10}                                         \\
-	S_2 \to bS_{10}                                         \\
-	S_{10} \to S_3|S_4                                      \\
-	S_3 \to aS_{15}|a                                       \\
-	S_4 \to bS_{15}|b                                       \\
-	S_{15} \to S_{9}                                        \\
-	}{S_{15}}                                               \\
+	S_9 \to S_1|S_2                                               \\
+	S_1 \to aS_{10}                                               \\
+	S_2 \to bS_{10}                                               \\
+	S_{10} \to S_3|S_4                                            \\
+	S_3 \to aS_{15}|a                                             \\
+	S_4 \to bS_{15}|b                                             \\
+	S_{15} \to S_{9}|\varepsilon                                  \\
+	}{S_{15}}                                                     \\
 	%
 	G'_{16} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
-	S_{11} \to S_5|S_6                                      \\
-	S_5 \to S_{16}b|b                                       \\
-	S_6 \to S_{16}c|c                                       \\
-	S_{12} \to S_7|S_8                                      \\
-	S_7 \to S_{11}b                                         \\
-	S_8 \to S_{11}c                                         \\
-	S_{16} \to S_{12}|\varepsilon                           \\
+	S_{11} \to S_5|S_6                                            \\
+	S_5 \to S_{16}b|b                                             \\
+	S_6 \to S_{16}c|c                                             \\
+	S_{12} \to S_7|S_8                                            \\
+	S_7 \to S_{11}b                                               \\
+	S_8 \to S_{11}c                                               \\
+	S_{16} \to S_{12}                                             \\
 	}{S_{16}}
 	G''_{16} = \grammatics{S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
-	S_{11} \to S_5|S_6                                      \\
-	S_5 \to bS_{12}                                         \\
-	S_6 \to cS_{12}                                         \\
-	S_{12} \to S_7|S_8                                      \\
-	S_7 \to bS_{16}|b                                       \\
-	S_8 \to cS_{16}|c                                       \\
-	S_{16} \to S_{11}|\varepsilon                           \\
-	}{S_{16}}                                               \\
+	S_{11} \to S_5|S_6                                            \\
+	S_5 \to bS_{12}                                               \\
+	S_6 \to cS_{12}                                               \\
+	S_{12} \to S_7|S_8                                            \\
+	S_7 \to bS_{16}|b                                             \\
+	S_8 \to cS_{16}|c                                             \\
+	S_{16} \to S_{11}                                             \\
+	}{S_{16}}                                                     \\
 	%
 	G'_{17} = \grammatics{S_9, S_1, S_2, S_{10}, S_3, S_4, S_{15}, S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
-	S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\
-	S_1 \to S_{15}a|a       & S_5 \to S_{16}b|S_{15}b       \\
-	S_2 \to S_{15}b|b       & S_6 \to S_{16}c|S_{15}c       \\
-	S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\
-	S_3 \to S_9a            & S_7 \to S_{11}b               \\
-	S_4 \to S_9b            & S_8 \to S_{11}c               \\
-	S_{15} \to S_{10}       & S_{16} \to S_{12}|S_{15}      \\
-	}{S_{16}}                                               \\
+	S_9 \to S_1|S_2               & S_{11} \to S_5|S_6            \\
+	S_1 \to S_{15}a|a             & S_5 \to S_{16}b|S_{15}b       \\
+	S_2 \to S_{15}b|b             & S_6 \to S_{16}c|S_{15}c       \\
+	S_{10} \to S_3|S_4            & S_{12} \to S_7|S_8            \\
+	S_3 \to S_9a                  & S_7 \to S_{11}b               \\
+	S_4 \to S_9b                  & S_8 \to S_{11}c               \\
+	S_{15} \to S_{10}|\varepsilon & S_{16} \to S_{12}             \\
+	}{S_{16}}                                                     \\
 	G''_{17} = \grammatics{S_9, S_1, S_2, S_{10}, S_3, S_4, S_{15}, S_{11}, S_5, S_6, S_{12}, S_7, S_8, S_{16}}{\Sigma}{
-	S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\
-	S_1 \to aS_{10}         & S_5 \to bS_{12}               \\
-	S_2 \to bS_{10}         & S_6 \to cS_{12}               \\
-	S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\
-	S_3 \to aS_{15}|aS_{16} & S_7 \to bS_{16}|b             \\
-	S_4 \to bS_{15}|bS_{16} & S_8 \to cS_{16}|c             \\
-	S_{15} \to S_{9}        & S_{16} \to S_{11}|\varepsilon \\
+	S_9 \to S_1|S_2               & S_{11} \to S_5|S_6            \\
+	S_1 \to aS_{10}               & S_5 \to bS_{12}               \\
+	S_2 \to bS_{10}               & S_6 \to cS_{12}               \\
+	S_{10} \to S_3|S_4            & S_{12} \to S_7|S_8            \\
+	S_3 \to aS_{15}|aS_{16}       & S_7 \to bS_{16}|b             \\
+	S_4 \to bS_{15}|bS_{16}       & S_8 \to cS_{16}|c             \\
+	S_{15} \to S_{9}              & S_{16} \to S_{11}|\varepsilon \\
 	}{S_{15}}
 \end{align*}
-\input{content/norm.tex}
-\input{content/fin_automata.tex}
