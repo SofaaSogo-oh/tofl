@@ -7,15 +7,15 @@
 \contentsline {subsubsection}{\numberline {2.3.1}Построение леволинейной и праволинейной грамматик}{3}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Приведение грамматики}{5}{subsubsection.2.3.2}%
 \contentsline {paragraph}{\numberline {2.3.2.1} Проверка пустоты}{5}{paragraph.2.3.2.1}%
-\contentsline {paragraph}{\numberline {2.3.2.2} Удаление бесполезных символов}{6}{paragraph.2.3.2.2}%
-\contentsline {paragraph}{\numberline {2.3.2.3} Удаление недостижимых символов}{7}{paragraph.2.3.2.3}%
-\contentsline {paragraph}{\numberline {2.3.2.4} Удаление пустых правил}{9}{paragraph.2.3.2.4}%
-\contentsline {paragraph}{\numberline {2.3.2.5} Удаление цепных правил}{10}{paragraph.2.3.2.5}%
-\contentsline {paragraph}{\numberline {2.3.2.6} Удаление бесполезных символов грамматик \(G'_{18}\) и \(G''_{19}\)}{14}{paragraph.2.3.2.6}%
-\contentsline {paragraph}{\numberline {2.3.2.7} Удаление недостижимых символов грамматик \(G'_{18}\) и \(G''_{19}\)}{15}{paragraph.2.3.2.7}%
-\contentsline {subsubsection}{\numberline {2.3.3}Построение конечного автомата для приведенной грамматики}{16}{subsubsection.2.3.3}%
-\contentsline {paragraph}{\numberline {2.3.3.1}Приведение к автоматному виду}{16}{paragraph.2.3.3.1}%
-\contentsline {paragraph}{\numberline {2.3.3.2}Построение конечных автоматов \(M_1 = (Q_1, \Sigma , \delta _1, q_1, F_1)\) и \(M_2 = (Q_2, \Sigma , \delta _2, q_2, F_2)\) для автоматных грамматик \(G'_{19}\) и \(G''_{20}\).}{17}{paragraph.2.3.3.2}%
-\contentsline {paragraph}{\numberline {2.3.3.3}Построение диаграммы состояний автомата \(M\)}{18}{paragraph.2.3.3.3}%
-\contentsline {subsection}{\numberline {2.4}Построение КА по регулярному выражению}{19}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Построение КА \(M_3\)}{19}{subsubsection.2.4.1}%
+\contentsline {paragraph}{\numberline {2.3.2.2} Удаление бесполезных символов}{7}{paragraph.2.3.2.2}%
+\contentsline {paragraph}{\numberline {2.3.2.3} Удаление недостижимых символов}{8}{paragraph.2.3.2.3}%
+\contentsline {paragraph}{\numberline {2.3.2.4} Удаление пустых правил}{10}{paragraph.2.3.2.4}%
+\contentsline {paragraph}{\numberline {2.3.2.5} Удаление цепных правил}{11}{paragraph.2.3.2.5}%
+\contentsline {paragraph}{\numberline {2.3.2.6} Удаление бесполезных символов грамматик \(G'_{18}\) и \(G''_{19}\)}{15}{paragraph.2.3.2.6}%
+\contentsline {paragraph}{\numberline {2.3.2.7} Удаление недостижимых символов грамматик \(G'_{18}\) и \(G''_{19}\)}{16}{paragraph.2.3.2.7}%
+\contentsline {subsubsection}{\numberline {2.3.3}Построение конечного автомата для приведенной грамматики}{17}{subsubsection.2.3.3}%
+\contentsline {paragraph}{\numberline {2.3.3.1}Приведение к автоматному виду}{17}{paragraph.2.3.3.1}%
+\contentsline {paragraph}{\numberline {2.3.3.2}Построение конечных автоматов \(M_1 = (Q_1, \Sigma , \delta _1, q_1, F_1)\) и \(M_2 = (Q_2, \Sigma , \delta _2, q_2, F_2)\) для автоматных грамматик \(G'_{19}\) и \(G''_{20}\).}{18}{paragraph.2.3.3.2}%
+\contentsline {paragraph}{\numberline {2.3.3.3}Построение диаграммы состояний автомата \(M\)}{19}{paragraph.2.3.3.3}%
+\contentsline {subsection}{\numberline {2.4}Построение КА по регулярному выражению}{20}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Построение КА \(M_3\)}{20}{subsubsection.2.4.1}%

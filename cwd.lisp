@@ -3,22 +3,22 @@
 (progn "def grammatics"
   (defparameter *lg-17*
     (concatenate 'string
-      "S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\"
-      "S_1 \to S_{15}a|a       & S_5 \to S_{16}b|S_{15}b       \\"
-      "S_2 \to S_{15}b|b       & S_6 \to S_{16}c|S_{15}c       \\"
-      "S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\"
-      "S_3 \to S_9a            & S_7 \to S_{11}b               \\"
-      "S_4 \to S_9b            & S_8 \to S_{11}c               \\"
-      "S_{15} \to S_{10}       & S_{16} \to S_{12}|S_{16}      \\"))
+      "S_9 \to S_1|S_2               & S_{11} \to S_5|S_6      \\"
+      "S_1 \to S_{15}a|a             & S_5 \to S_{16}b|S_{15}b \\"
+      "S_2 \to S_{15}b|b             & S_6 \to S_{16}c|S_{15}c \\"
+      "S_{10} \to S_3|S_4            & S_{12} \to S_7|S_8      \\"
+      "S_3 \to S_9a                  & S_7 \to S_{11}b         \\"
+      "S_4 \to S_9b                  & S_8 \to S_{11}c         \\"
+      "S_{15} \to S_{10}|\varepsilon & S_{16} \to S_{12}       \\"))
   (defparameter *rg-17*
    (concatenate 'string
-      "S_9 \to S_1|S_2         & S_{11} \to S_5|S_6            \\"
-      "S_1 \to aS_{10}         & S_5 \to bS_{12}               \\"
-      "S_2 \to bS_{10}         & S_6 \to cS_{12}               \\"
-      "S_{10} \to S_3|S_4      & S_{12} \to S_7|S_8            \\"
-      "S_3 \to aS_{15}|aS_{16} & S_7 \to bS_{16}|b             \\"
-      "S_4 \to bS_{15}|bS_{16} & S_8 \to cS_{16}|c             \\"
-      "S_{15} \to S_9        & S_{16} \to S_{11}|\varepsilon \\"))
+      "S_9 \to S_1|S_2               & S_{11} \to S_5|S_6      \\"
+      "S_1 \to aS_{10}               & S_5 \to bS_{12}         \\"
+      "S_2 \to bS_{10}               & S_6 \to cS_{12}         \\"
+      "S_{10} \to S_3|S_4            & S_{12} \to S_7|S_8      \\"
+      "S_3 \to aS_{15}|aS_{16}       & S_7 \to bS_{16}|b       \\"
+      "S_4 \to bS_{15}|bS_{16}       & S_8 \to cS_{16}|c       \\"
+      "S_{15} \to S_{9}|S_{16}       & S_{16} \to S_{11}       \\"))
   (defparameter *rg-18*
    (concatenate 'string
       "S_9 \to S_1|S_2           & S_{11} \to S_5|S_6            \\"
