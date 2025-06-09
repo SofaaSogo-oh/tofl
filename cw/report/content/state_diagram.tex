@@ -12,26 +12,24 @@
 			initial text={Начало}
 		]
 
-		% Состояния
 		\node[state, initial] (H) {$H$};
-		\node[state, right of=H] (S9) {$S_9$};
-		\node[state, above right of=S9] (S15) {$S_{15}$};
-		\node[state, right of=S15] (S11) {$S_{11}$};
-		\node[state, accepting, below right of=S11] (S16) {$S_{16}$};
-
-		% Переходы
+		\node[state, above of=H] (S9) {$S_9$};
+		\node[state, right of=S9] (S15) {$S_{15}$};
+		\node[state, right of=H] (S11) {$S_{11}$};
+		\node[state, accepting, right of=S11] (S16) {$S_{16}$};
 		\path
-		(H) edge node[above] {a, b} (S9)
+		(H) edge node[left] {a,b} (S9)
+		(H) edge node[above] {b,c} (S11)
 
-		(S9) edge[bend left=20] node[above] {a, b} (S15)
-		(S9) edge node[below] {a, b} (S16)
+		(S9) edge[bend left=20] node[above] {a,b} (S15)
 
-		(S15) edge[bend left=20] node[below] {a, b} (S9)
-		(S15) edge node[above] {b, c} (S11)
+		(S11) edge[bend left=20] node[above] {b,c} (S16)
 
-		(S11) edge[bend left=20] node[above] {b, c} (S16)
+		(S15) edge[bend left=20] node[below] {a,b} (S9)
+		(S15) edge node[right] {b,c} (S11)
 
-		(S16) edge[bend left=20] node[below] {b, c} (S11);
+		(S16) edge[bend left=20] node[below] {b,c} (S11)
+		;
 	\end{tikzpicture}
 	\caption{Диаграмма состояний недетерменированного конечного автомата \(M_1\)}
 \end{figure}
@@ -44,23 +42,22 @@
 			every state/.style={thick, fill=gray!10}, % Стиль состояний
 			initial text={Начало} % Убираем текст "start" у начального состояния
 		]
+		\node[state, initial] (S15) {$S_{15}$};
+		\node[state, above of=S15] (S10) {$S_{10}$};
+		\node[state, right of=S15] (S12) {$S_{12}$};
+		\node[state, right of=S10] (S16) {$S_{16}$};
+		\node[state, accepting, right of=S12] (F) {$F$};
 
-		% Состояния
-		\node[state, initial] (S15) {$S_{15}$}; % Жирный кружок (начальное)
-		\node[state, above right of=S15] (S10) {$S_{10}$};
-		\node[state, below right of=S10] (S16) {$S_{16}$};
-		\node[state, right of=S16] (S12) {$S_{12}$};
-		\node[state, accepting, above right of=S12] (F) {$F$}; % Двойной кружок (конечное)
-
-		% Переходы
 		\path
-		(S15) edge[bend left=20] node[above] {a, b} (S10)
-		(S10) edge[bend left=20] node[below] {a, b} (S15)
-		(S10) edge node[right] {a, b} (S16)
-		(S10) edge node[above] {a, b} (F)
-		(S16) edge[bend left=20] node[above] {b, c} (S12)
-		(S12) edge[bend left=20] node[below] {b, c} (S16)
-		(S12) edge node[above] {b, c} (F);
+		(S15) edge[bend left=20] node[left] {a,b} (S10)
+		edge node[below] {b,c} (S12)
+		(S10) edge[bend left=20] node[right] {a,b} (S15)
+		edge node[above] {a,b} (S16)
+		(S12) edge node[below] {b,c} (F)
+		edge[bend left=20] node[left] {b,c} (S16)
+		(S16) edge[bend left=20] node[right] {b,c} (S12)
+		;
+
 	\end{tikzpicture}
 	\caption{Диаграмма состояний недетерменированного конечного автомата \(M_2\)}
 \end{figure}

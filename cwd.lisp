@@ -49,15 +49,13 @@
       "S_{15} \to S_9a|S_9b                           & S_{16} \to S_{11}b|S_{11}c|S_9a|S_9b|b|c   "))
   (defparameter *rg-18*
     (concatenate 'string
-          "S_1 \to aS_{10}            & S_5 \to bS_{12}                                \\"
-          "S_2 \to bS_{10}            & S_6 \to cS_{12}                                \\"
-          "S_3 \to aS_{15}|aS_{16}|a  & S_7 \to bS_{16}|b                              \\"
-          "S_4 \to bS_{15}|bS_{16}|b  & S_8 \to cS_{16}|c                              \\"
-          "S_9 \to aS_{10}|bS_{10}    & S_{10} \to aS_{15}|aS_{16}|a|bS_{15}|bS_{16}|b \\"
-          "S_{11} \to bS_{12}|cS_{12} & S_{12} \to bS_{16}|b|cS_{16}|c                 \\"
-          "S_{15} \to aS_{10}|bS_{10} & S_{16} \to bS_{12}|cS_{12}")))
-                 
-
+          "S_1 \to aS_{10}                            & S_5 \to bS_{12}                            \\"
+          "S_2 \to bS_{10}                            & S_6 \to cS_{12}                            \\"
+          "S_3 \to aS_{15}|aS_{16}                    & S_7 \to bS_{16}|b                          \\"
+          "S_4 \to bS_{15}|bS_{16}                    & S_8 \to cS_{16}|c                          \\"
+          "S_9 \to aS_{10}|bS_{10}                    & S_{10} \to aS_{15}|aS_{16}|bS_{15}|bS_{16} \\"
+          "S_{11} \to bS_{12}|cS_{12}                 & S_{12} \to bS_{16}|b|cS_{16}|c             \\"
+          "S_{15} \to aS_{10}|bS_{10}|bS_{12}|cS_{12} & S_{16} \to bS_{12}|cS_{12}")))
 
 
 (defparameter *grammar1* *lg-17*)
