@@ -1,6 +1,6 @@
-\subsubsubsection{ Удаление недостижимых символов грамматик \(G'_{18}\) и \(G''_{19}\)}
+\subsubsubsection{ Удаление недостижимых символов грамматик \(G'_{19}\) и \(G''_{18}\)}
 \begin{itemize}
-	\item Для леволинейной грамматики \(G'_{18}\)
+	\item Для леволинейной грамматики \(G'_{19}\)
 	      \begin{align*}
 		      C_{0} & = \cbr{S_{16}}                                                                                       \\
 		      C_{1} & = \cbr{S_9, S_{11}, a, b, c} \cup C_{0} = \cbr{S_9, S_{11}, S_{16}, a, b, c}                         \\
@@ -9,14 +9,14 @@
 	      \end{align*}
 	      Строим результирующую грамматику \(G'_{19}\) без недостижимых символов
 	      \begin{align*}
-		      \aleph'_{19} & = \aleph'_{18} \cap C_{3} = \cbr{S_9, S_{11}, S_{15}, S_{16}}                                                                \\
-		      \Sigma'_{19} & = \Sigma'_{18} \cap C_{3} = \cbr{a, b, c}                                                                                    \\
-		      P'_{19}      & = \cbr{(A \to \alpha) | \forall (A\to\alpha)\in P'_{18},A\in \aleph'_{19}, \alpha \in (\Sigma'_{19} \cup  \aleph'_{19})^*} = \\
+		      \aleph'_{20} & = \aleph'_{19} \cap C_{3} = \cbr{S_9, S_{11}, S_{15}, S_{16}}                                                                \\
+		      \Sigma'_{20} & = \Sigma'_{19} \cap C_{3} = \cbr{a, b, c}                                                                                    \\
+		      P'_{20}      & = \cbr{(A \to \alpha) | \forall (A\to\alpha)\in P'_{18},A\in \aleph'_{19}, \alpha \in (\Sigma'_{19} \cup  \aleph'_{19})^*} = \\
 		                   & = \cbr{\begin{array}{ll}
-				                            S_9 \to S_{15}a|a|S_{15}b|b & S_{11} \to S_{16}b|S_{15}b|S_{16}c|S_{15}c \\
-				                            S_{15} \to S_9a|S_9b        & S_{16} \to S_{11}b|S_{11}c|S_9a|S_9b
-			                            \end{array}}                                              \\
-		      S'_{19}      & \equiv S_{16}
+				                            S_9 \to S_{15}a|a|S_{15}b|b & S_{11} \to S_{16}b|S_{15}b|S_{16}c|S_{15}c|b|c \\
+				                            S_{15} \to S_9a|S_9b        & S_{16} \to S_{11}b|S_{11}c|S_9a|S_9b|b|c
+			                            \end{array}}                                          \\
+		      S'_{20}      & \equiv S_{16}
 	      \end{align*}
 	      Таким образом, результирующая грамматика \(G'_{19}\) примет вид
 	      \begin{align*}
