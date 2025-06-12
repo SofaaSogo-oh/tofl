@@ -1,0 +1,242 @@
+Построение диаграмм состояний минимального ДКА \(M\)
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		\node[state, initial] (H)
+		{$\begin{array}{l}
+					[H] \\
+					{[S_{15}]}
+				\end{array}$};
+		\node [state, above right= of H] (X) {$[S_{9}]$};
+		\node [state, below right= of H] (Y)
+		{$\begin{array}{l}
+					[S_{9}S_{11}] \\
+					{[S_{11}]}
+				\end{array}$};
+
+		\node [state, accepting, below right= of X] (F)
+		{$\begin{array}{l}
+					[S_{16}] \\
+					{[S_{15}S_{16}]}
+				\end{array}$};
+
+		\path
+		(H) edge[bend left=20] node[above]{a} (X)
+		edge[bend left=20] node[above]{b,c} (Y)
+		(X) edge[bend left=20] node[right]{a,b} (H)
+		(Y) edge[bend left=20] node[below]{a} (H)
+		edge[bend left=20] node[above]{b,c} (F)
+		(F) edge node[below]{a} (X)
+		edge[bend left=20] node[right]{b,c} (Y)
+		;
+
+		% \path
+		% (H) edge node[above] {a} (S9)
+		% edge node[above] {b} (S9S11)
+		% edge node[above] {c} (S11)
+		% (S9) edge node[above] {a,b} (S15)
+		% (S11) edge node[above] {b,c} (S16)
+		% (S9S11) edge node[above] {a} (S15)
+		% edge node[above] {b} (S15S16)
+		% edge node[above] {c} (S16)
+		% (S15) edge[bend left=30] node[above] {a} (S9)
+		% edge[bend left=20] node[above] {b} (S9S11)
+		% edge[bend right=10] node[above] {c} (S11)
+		% (S16) edge[bend right=30] node[above]{b,c} (S11)
+		% (S15S16) edge node[above] {a} (S9)
+		% edge[bend left=20] node[above] {b} (S9S11)
+		% edge node[above] {c} (S11)
+		% ;
+
+		% Состояния
+		% \node[state, initial] (q150) {$q_{150}$};
+		% \node[state,  right of=q10] (q11) {$q_{11}$};
+		% \node[state,  right of=q20] (q21) {$q_{21}$};
+		% \node[state, right= of q11] (q31) {$q_{31}$};
+		% \node[state, right= of q21] (q41) {$q_{41}$};
+		% % Переходы
+		% \path
+		% (q150) edge node[below] {b} (q21)
+		% (q11) edge[bend right=20] node[below] {b} (q41)
+		% (q21) edge node[above] {b} (q41)
+		% (q31) edge[bend left=20] node[below]{b} (q21)
+		% (q41) edge[bend left=20] node[below{b} (q21)
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний ДКА \(M''_{1}\)}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.5cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		\node[state, initial] (H)
+		{$\begin{array}{l}
+					[q_{150}] \\
+					{[q_{31}][q_{41}]}
+				\end{array}$};
+		\node [state, above right= of H] (X) {$[q_{11}]$};
+		\node [state, below right= of H] (Y)
+		{$\begin{array}{l}
+					[q_{21}q_{51}] \\
+					{[q_{61}][q_{51}]}
+				\end{array}$};
+
+		\node [state, accepting, below right= of X] (F)
+		{$\begin{array}{l}
+					[q_{41}q_{71}] \\
+					{[q_{81}][q_{71}]}
+				\end{array}$};
+
+		\path
+		(H) edge[bend left=20] node[above]{a} (X)
+		edge[bend left=20] node[above]{b,c} (Y)
+		(X) edge[bend left=20] node[right]{a,b} (H)
+		(Y) edge[bend left=20] node[below]{a} (H)
+		edge[bend left=20] node[above]{b,c} (F)
+		(F) edge node[below]{a} (X)
+		edge[bend left=20] node[right]{b,c} (Y)
+		;
+
+		% \path
+		% (H) edge node[above] {a} (S9)
+		% edge node[above] {b} (S9S11)
+		% edge node[above] {c} (S11)
+		% (S9) edge node[above] {a,b} (S15)
+		% (S11) edge node[above] {b,c} (S16)
+		% (S9S11) edge node[above] {a} (S15)
+		% edge node[above] {b} (S15S16)
+		% edge node[above] {c} (S16)
+		% (S15) edge[bend left=30] node[above] {a} (S9)
+		% edge[bend left=20] node[above] {b} (S9S11)
+		% edge[bend right=10] node[above] {c} (S11)
+		% (S16) edge[bend right=30] node[above]{b,c} (S11)
+		% (S15S16) edge node[above] {a} (S9)
+		% edge[bend left=20] node[above] {b} (S9S11)
+		% edge node[above] {c} (S11)
+		% ;
+
+		% Состояния
+		% \node[state, initial] (q150) {$q_{150}$};
+		% \node[state,  right of=q10] (q11) {$q_{11}$};
+		% \node[state,  right of=q20] (q21) {$q_{21}$};
+		% \node[state, right= of q11] (q31) {$q_{31}$};
+		% \node[state, right= of q21] (q41) {$q_{41}$};
+		% % Переходы
+		% \path
+		% (q150) edge node[below] {b} (q21)
+		% (q11) edge[bend right=20] node[below] {b} (q41)
+		% (q21) edge node[above] {b} (q41)
+		% (q31) edge[bend left=20] node[below]{b} (q21)
+		% (q41) edge[bend left=20] node[below{b} (q21)
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний ДКА \(M''_{3}\)}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=3.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		\node[state, initial] (H) {$[H]$};
+		\node[state, right of=H] (S9S11) {$[S_{9}S_{11}]$};
+		\node[state, above of=S9S11] (S11) {$[S_{11}]$};
+		\node[state, below of=S9S11] (S9) {$[S_9]$};
+		\node[state, accepting, right of=S11] (S16) {$[S_{16}]$};
+		\node[state, accepting, right = 4.0cm of S9S11] (S15S16) {$[S_{15}S_{16}]$};
+		\node[state,  right of=S9] (S15) {$[S_{15}]$};
+
+		\path
+		(H) edge node[above] {a} (S9)
+		(S9) edge node[above] {a} (S15)
+		(S9S11) edge node[above] {a} (S15)
+		(S15) edge[bend left=30] node[above] {a} (S9)
+		(S15S16) edge node[above] {a} (S9)
+		;
+	\end{tikzpicture}
+	\caption{Диаграмма состояний ДКА \(M'_{1}\)}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=3.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		\node[state, initial] (H) {$[H]$};
+		\node[state, right of=H] (S9S11) {$[S_{9}S_{11}]$};
+		\node[state, above of=S9S11] (S11) {$[S_{11}]$};
+		\node[state, below of=S9S11] (S9) {$[S_9]$};
+		\node[state, accepting, right of=S11] (S16) {$[S_{16}]$};
+		\node[state, accepting, right = 4.0cm of S9S11] (S15S16) {$[S_{15}S_{16}]$};
+		\node[state,  right of=S9] (S15) {$[S_{15}]$};
+
+		\path
+		(H)edge node[above] {b} (S9S11)
+		(S9) edge node[above] {b} (S15)
+		(S11) edge node[above] {b} (S16)
+		(S9S11)edge node[above] {b} (S15S16)
+		(S15)edge[bend left=20] node[above] {b} (S9S11)
+		(S16) edge[bend right=30] node[above]{b} (S11)
+		(S15S16)edge[bend left=20] node[above] {b} (S9S11)
+		;
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний ДКА \(M'_{1}\)}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=3.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		\node[state, initial] (H) {$[H]$};
+		\node[state, right of=H] (S9S11) {$[S_{9}S_{11}]$};
+		\node[state, above of=S9S11] (S11) {$[S_{11}]$};
+		\node[state, below of=S9S11] (S9) {$[S_9]$};
+		\node[state, accepting, right of=S11] (S16) {$[S_{16}]$};
+		\node[state, accepting, right = 4.0cm of S9S11] (S15S16) {$[S_{15}S_{16}]$};
+		\node[state,  right of=S9] (S15) {$[S_{15}]$};
+
+		\path
+		(H)edge node[above] {c} (S11)
+		(S11) edge node[above] {c} (S16)
+		(S9S11)edge node[above] {c} (S16)
+		(S15)edge[bend right=10] node[above] {c} (S11)
+		(S16) edge[bend right=30] node[above]{c} (S11)
+		(S15S16)edge node[above] {c} (S11)
+		;
+
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний ДКА \(M'_{1}\)}
+\end{figure}

@@ -1,0 +1,31 @@
+\subsubsection{ДКА для \(M_1\)}
+Переходы определяются как
+\begin{align*}
+	\begin{array}{ll}
+		\gendelta{S_9}{a}{S_{15}}{\maqa}                               \\
+		\gendelta{H}{a}{S_9}{\maqa,S_{15}}                             \\
+		\gendelta{S_{15}}{a}{S_9}{\maqa}                               \\
+		\gendelta{S_9S_{15}}{a}{S_9S_{15}}{\maqa,H}                    \\
+		\gendelta{S_9H}{a}{S_9S_{15}}{\maqa}                           \\
+		\gendelta{S_{11}}{c}{S_{16}}{\maqc}                            \\
+		\gendelta{S_{15}}{c}{S_{11}}{\maqc, H, S_{16}}                 \\
+		\gendelta{H}{c}{S_{11}}{\maqc, S_{16}}                         \\
+		\gendelta{S_{16}}{c}{S_{11}}{\maqc}                            \\
+		\gendelta{HS_{11}}{c}{S_{11}S_{16}}{\maqc,S_{15},S_{16}}       \\
+		\gendelta{S_{15}S_{11}}{c}{S_{11}S_{16}}{\maqc,S_{16}}         \\
+		\gendelta{S_{16}S_{11}}{c}{S_{11}S_{16}}{\maqc}                \\
+		\gendelta{S_{11}}{b}{S_{16}}{}                                 \\
+		\gendelta{S_{9}}{b}{S_{15}}{}                                  \\
+		\gendelta{H}{b}{S_9S_{11}}{S_{15},S_{16}}                      \\
+		\gendelta{S_{15}}{b}{S_9S_{11}}{S_{16}}                        \\
+		\gendelta{S_{16}}{b}{S_{11}}{}                                 \\
+		\gendelta{S_9H}{b}{S_9S_{11}S_{15}}{S_{15},S_{16}}             \\
+		\gendelta{S_9S_{15}}{b}{S_9S_{11}S_{15}}{S_{16}}               \\
+		\gendelta{S_{11}H}{b}{S_9S_{11}S_{16}}{S_{15},S_{16}}          \\
+		\gendelta{S_{11}S_{15}}{b}{S_9S_{11}S_{16}}{S_{16}}            \\
+		\gendelta{S_9S_{16}}{b}{S_{15}S_{11}}{}                        \\
+		\gendelta{S_9S_{11}H}{b}{S_9S_{15}S_{11}S_{16}}{S_{16},S_{15}} \\
+		\gendelta{S_9S_{11}S_{15}}{b}{S_9S_{15}S_{11}S_{16}}{S_{16}}   \\
+		\gendelta{S_9S_{11}}{b}{S_{15}S_{16}}{}
+	\end{array}
+\end{align*}

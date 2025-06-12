@@ -1,0 +1,200 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/nixos.org) (preloaded format=latex 1980.1.1)  12 JUN 2025 17:28
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**document.tex
+(./document.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/titlesec/titlesec.sty
+Package: titlesec 2023/10/27 v2.16 Sectioning titles
+\ttl@box=\box51
+\beforetitleunit=\skip50
+\aftertitleunit=\skip51
+\ttl@plus=\dimen141
+\ttl@minus=\dimen142
+\ttl@toksa=\toks17
+\titlewidth=\dimen143
+\titlewidthlast=\dimen144
+\titlewidthfirst=\dimen145
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/titlesec/titleps.sty))
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen146
+))
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen147
+)
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count196
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count197
+\leftroot@=\count198
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count199
+\DOTSCASE@=\count266
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen148
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count267
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count268
+\dotsspace@=\muskip16
+\c@parentequation=\count269
+\dspbrk@lvl=\count270
+\tag@help=\toks19
+\row@=\count271
+\column@=\count272
+\maxfields@=\count273
+\andhelp@=\toks20
+\eqnshift@=\dimen149
+\alignsep@=\dimen150
+\tagshift@=\dimen151
+\tagwidth@=\dimen152
+\totwidth@=\dimen153
+\lineht@=\dimen154
+\@envbody=\toks21
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
+\thm@preskip=\skip55
+\thm@postskip=\skip56
+\thm@headsep=\skip57
+\dth@everypar=\toks28
+)
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/generic/babel/babel.sty
+Package: babel 2024/02/07 v24.2 The Babel package
+\babel@savecnt=\count274
+\U@D=\dimen155
+\l@unhyphenated=\language50
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count275
+
+(/nix/store/72dyg4qw90faq9v17l5qyq0dbfp24wy0-texlive-combined-2023-texmfdist/te
+x/generic/babel-russian/russianb.ldf
+File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
+Language: russian 2020/09/09 1.3k Russian support for the Babel system
+
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language 'Russian' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for \language=0 instead on input line 32.
+
+Package babel Info: Hyphen rules for 'russian' set to \l@english
+(babel)             (\language0). Reported on input line 33.
+
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 78.
+
+
+! I can't find file `t2aenc.def'.
+<to be read again> 
+                   \relax 
+l.79 ...fter\input\cyrillicencoding enc.def\relax}
+                                                  %
+(Press Enter to retry, or Control-D to exit)
+Please type another input file name: 
+! Emergency stop.
+<to be read again> 
+                   \relax 
+l.79 ...fter\input\cyrillicencoding enc.def\relax}
+                                                  %
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 2851 strings out of 475231
+ 42165 string characters out of 5751353
+ 1925184 words of memory out of 5000000
+ 25083 multiletter control sequences out of 15000+600000
+ 558367 words of font info for 37 fonts, out of 8000000 for 9000
+ 430 hyphenation exceptions out of 8191
+ 56i,0n,65p,223b,36s stack positions out of 10000i,1000n,20000p,200000b,200000s
+No pages of output.

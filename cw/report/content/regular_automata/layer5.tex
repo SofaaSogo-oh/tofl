@@ -164,3 +164,49 @@
 	\end{tikzpicture}
 	\caption{Диаграмма состояний НКА \(M_{17}\)}
 \end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q150) {$q_{150}$};
+		\node[state,  right of=q10] (q11) {$q_{11}$};
+		\node[state,  right of=q20] (q21) {$q_{21}$};
+		\node[state, right= of q11] (q31) {$q_{31}$};
+		\node[state, right= of q21] (q41) {$q_{41}$};
+		% Переходы
+		\path
+		(q150) edge node[below] {b} (q21)
+		(q11) edge[bend right=20] node[below] {b} (q41)
+		(q21) edge node[above] {b} (q41)
+		(q31) edge[bend left=20] node[below]{b} (q21)
+		(q41) edge[bend left=20] node[below]{b} (q21)
+		;
+		\node[state, above of=q110] (q51) {$q_{51}$};
+		\node[state, below of=q110] (q61) {$q_{61}$};
+		\node[state, accepting, right = of q51] (q71) {$q_{71}$};
+		\node[state, accepting, right = of q61] (q81) {$q_{81}$};
+		% Переходы
+		\path
+		(q51) edge node[below] {b} (q71)
+		(q61) edge[bend left=20] node[above] {b} (q71)
+		(q71) edge[bend right=20] node[above] {b} (q51)
+		(q81) edge[bend right=20] node[above]{b} (q51)
+		;
+
+		\path
+		(q31) edge[bend left=30] node[above]{b} (q51)
+		(q41) edge[bend left=20] node[above]{b} (q51)
+		(q150) edge[bend left=60] node[above]{b} (q51)
+		;
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_{17}\)}
+\end{figure}

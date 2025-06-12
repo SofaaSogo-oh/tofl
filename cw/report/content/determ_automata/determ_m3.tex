@@ -1,0 +1,175 @@
+\newpage
+\subsubsection{ДКА для \(M_3\)}
+\subsubsubsection{Удаление недостижимых символов}
+Для удобства, сначала удалим недостижимые состояния:
+\begin{align*}
+	R = \cbr{q_{150}}, P_0 = \cbr{q_{150}}                                                                                                                                      \\
+	P_1 = \cbr{q_{11},q_{21}, q_{51}, q_{61}}, R \setminus P_1 \neq \varnothing \Longrightarrow R = \cbr{q_{150}, q_{11},q_{21}, q_{51}, q_{61}}                                \\
+	P_2 = \cbr{q_{31},q_{41}, q_{71}, q_{81}}, R \setminus P_2 \neq \varnothing \Longrightarrow R = \cbr{q_{150}, q_{11},q_{21}, q_{31}, q_{41} q_{51}, q_{61}, q_{71}, q_{81}} \\
+	P_3 = \cbr{q_{51}, q_{61}}, R \setminus P_3 = \varnothing \Longrightarrow R = \cbr{q_{150}, q_{11},q_{21}, q_{31}, q_{41} q_{51}, q_{61}, q_{71}, q_{81}}                   \\
+\end{align*}
+Автомат после удаления недостижимых состояний
+\begin{align*}
+	M_3 = \rbr{\cbr{q_{150}, q_{11},q_{21}, q_{31}, q_{41} q_{51}, q_{61}, q_{71}, q_{81}}, \Sigma, \delta_3, q_{150}, \cbr{q_{71}, q_{81}}} \\
+	\begin{array}{lll}
+		\delta_{3}(q_{11}, a) =  \cbr{q_{31}} & \delta_{3}(q_{11}, b)=  \cbr{q_{41}}                                                  \\
+		\delta_{3}(q_{21}, a) =  \cbr{q_{31}} & \delta_{3}(q_{21}, b)=  \cbr{q_{41}}                                                  \\
+		\delta_{3}(q_{31}, a) = \cbr{q_{11}}  & \delta_{3}(q_{31}, b) = \cbr{q_{21}, q_{51}}  & \delta_{3}(q_{31}, c) = \cbr{q_{61}}  \\
+		\delta_{3}(q_{41}, a) = \cbr{q_{11}}  & \delta_{3}(q_{41}, b) = \cbr{q_{21}, q_{51}}  & \delta_{3}(q_{41}, c) = \cbr{q_{61}}  \\
+		\delta_{3}(q_{150}, a) = \cbr{q_{11}} & \delta_{3}(q_{150}, b) = \cbr{q_{21}, q_{51}} & \delta_{3}(q_{150}, c) = \cbr{q_{61}} \\
+		\delta_{3}(q_{51}, b)  = \cbr{q_{71}} & \delta_{3}(q_{51}, c)  = \cbr{q_{81}}                                                 \\
+		\delta_{3}(q_{61}, b)  = \cbr{q_{71}} & \delta_{3}(q_{61}, c)  = \cbr{q_{81}}                                                 \\
+		\delta_{3}(q_{71}, b) = \cbr{q_{51}}  & \delta_{3}(q_{71}, c) =\cbr{q_{61}}                                                   \\
+		\delta_{3}(q_{81}, b) = \cbr{q_{51}}  & \delta_{3}(q_{81}, c) =\cbr{q_{61}}                                                   \\
+	\end{array}
+\end{align*}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2.0cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		% Состояния
+		\node[state, initial] (q150) {$q_{150}$};
+		\node[state,  right of=q10] (q11) {$q_{11}$};
+		\node[state,  right of=q20] (q21) {$q_{21}$};
+		\node[state, right= of q11] (q31) {$q_{31}$};
+		\node[state, right= of q21] (q41) {$q_{41}$};
+		% Переходы
+		\path
+		(q150) edge node[above] {a} (q11)
+		(q150) edge node[below] {b} (q21)
+		(q11) edge node[below] {a} (q31)
+		(q21) edge[bend left=20] node[above] {a} (q31)
+		(q11) edge[bend right=20] node[below] {b} (q41)
+		(q21) edge node[above] {b} (q41)
+		(q31) edge[bend right=20] node[above]{a} (q11)
+		(q31) edge[bend left=20] node[below]{b} (q21)
+		(q41) edge[bend left=20] node[below]{b} (q21)
+		(q41) edge[bend right=20] node[above]{a} (q11)
+		;
+		\node[state, above of=q110] (q51) {$q_{51}$};
+		\node[state, below of=q110] (q61) {$q_{61}$};
+		\node[state, accepting, right = of q51] (q71) {$q_{71}$};
+		\node[state, accepting, right = of q61] (q81) {$q_{81}$};
+		% Переходы
+		\path
+		(q51) edge node[below] {b} (q71)
+		(q61) edge[bend left=20] node[above] {b} (q71)
+		(q51) edge[bend right=20] node[below] {c} (q81)
+		(q61) edge node[above] {c} (q81)
+		(q71) edge[bend right=20] node[above] {b} (q51)
+		(q81) edge[bend left=20] node[below] {c} (q61)
+		(q71) edge[bend left=20] node[below]{c} (q61)
+		(q81) edge[bend right=20] node[above]{b} (q51)
+		;
+
+		\path
+		(q41) edge[bend right=30] node[below]{c} (q61)
+		(q31) edge[bend left=30] node[above]{b} (q51)
+		(q41) edge[bend left=20] node[above]{b} (q51)
+		(q31) edge[bend right=20] node[below]{c} (q61)
+		(q150) edge[bend right=60] node[below]{c} (q61)
+		(q150) edge[bend left=60] node[above]{b} (q51)
+		;
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний НКА \(M_{17}\)}
+\end{figure}
+
+\newpage
+\subsubsubsection{Построение ДКА}
+Переходы определяются как
+\begin{align*}
+	\begin{array}{ll}
+		\gendelta{q_{150}}{a}{q_{11}}{\mcqa, q_{41}, q_{31}}                                \\
+		\gendelta{q_{41}}{a}{q_{11}}{\mcqa, q_{31}}                                         \\
+		\gendelta{q_{31}}{a}{q_{11}}{\mcqa}                                                 \\
+		\gendelta{q_{11}}{a}{q_{31}}{\mcqa, q_{21}}                                         \\
+		\gendelta{q_{21}}{a}{q_{31}}{\mcqa}                                                 \\
+		\gendelta{q_{11}q_{150}}{a}{q_{11}q_{31}}{\mcqa,q_{31}, q_{41},q_{21}}              \\
+		\gendelta{q_{11}q_{31}}{a}{q_{11}q_{31}}{\mcqa, q_{41},q_{21}}                      \\
+		\gendelta{q_{11}q_{41}}{a}{q_{11}q_{31}}{\mcqa, q_{21}}                             \\
+		\gendelta{q_{21}q_{150}}{a}{q_{11}q_{31}}{\mcqa,q_{31}, q_{41}}                     \\
+		\gendelta{q_{21}q_{31}}{a}{q_{11}q_{31}}{\mcqa, q_{41}}                             \\
+		\gendelta{q_{21}q_{41}}{a}{q_{11}q_{31}}{\mcqa}                                     \\
+		\gendelta{q_{150}}{c}{q_{61}}{\mcqc,q_{31},q_{41},q_{71},q_{81}}                    \\
+		\gendelta{q_{31}}{c}{q_{61}}{\mcqc,q_{41},q_{71},q_{81}}                            \\
+		\gendelta{q_{41}}{c}{q_{61}}{\mcqc,q_{71},q_{81}}                                   \\
+		\gendelta{q_{71}}{c}{q_{61}}{\mcqc,q_{81}}                                          \\
+		\gendelta{q_{81}}{c}{q_{61}}{\mcqc}                                                 \\
+		\gendelta{q_{51}}{c}{q_{81}}{\mcqc, q_{61}}                                         \\
+		\gendelta{q_{61}}{c}{q_{81}}{\mcqc}                                                 \\
+		\gendelta{q_{51}q_{150}}{c}{q_{61}q_{81}}{\mcqc,q_{31},q_{41},q_{71},q_{81},q_{61}} \\
+		\gendelta{q_{51}q_{31}}{c}{q_{61}q_{81}}{\mcqc,q_{41},q_{71},q_{81},q_{61}}         \\
+		\gendelta{q_{51}q_{41}}{c}{q_{61}q_{81}}{\mcqc,q_{71},q_{81},q_{61}}                \\
+		\gendelta{q_{51}q_{71}}{c}{q_{61}q_{81}}{\mcqc,q_{81},q_{61}}                       \\
+		\gendelta{q_{51}q_{81}}{c}{q_{61}q_{81}}{\mcqc,q_{61}}                              \\
+		\gendelta{q_{61}q_{150}}{c}{q_{61}q_{81}}{\mcqc,q_{31},q_{41},q_{71},q_{81}}        \\
+		\gendelta{q_{61}q_{31}}{c}{q_{61}q_{81}}{\mcqc,q_{41},q_{71},q_{81}}                \\
+		\gendelta{q_{61}q_{41}}{c}{q_{61}q_{81}}{\mcqc,q_{71},q_{81}}                       \\
+		\gendelta{q_{61}q_{71}}{c}{q_{61}q_{81}}{\mcqc,q_{81}}                              \\
+		\gendelta{q_{61}q_{81}}{c}{q_{61}q_{81}}{\mcqc}                                     \\
+		\gendelta{q_{11}}{b}{q_{41}}{q_{21}}                                                \\
+		\gendelta{q_{21}}{b}{q_{41}}{}                                                      \\
+		\gendelta{q_{51}}{b}{q_{71}}{q_{61}}                                                \\
+		\gendelta{q_{61}}{b}{q_{71}}{}                                                      \\
+		\gendelta{q_{150}}{b}{q_{21}q_{51}}{q_{31},q_{41},q_{81}, q_{71}}                   \\
+		\gendelta{q_{31}}{b}{q_{21}q_{51}}{q_{41},q_{81}, q_{71}}                           \\
+		\gendelta{q_{41}}{b}{q_{21}q_{51}}{q_{81}, q_{71}}                                  \\
+		\gendelta{q_{81}}{b}{q_{51}}{q_{71}}                                                \\
+		\gendelta{q_{71}}{b}{q_{51}}{}                                                      \\
+	\end{array}
+\end{align*}
+
+\begin{align*}
+	\begin{array}{ll}
+		\gendelta{q_{71}q_{51}}{b}{q_{51}q_{71}}{q_{81},q_{61}}                                                \\
+		\gendelta{q_{81}q_{51}}{b}{q_{51}q_{71}}{q_{61}}                                                       \\
+		\gendelta{q_{71}q_{61}}{b}{q_{51}q_{71}}{q_{81}}                                                       \\
+		\gendelta{q_{81}q_{61}}{b}{q_{51}q_{71}}{}                                                             \\
+		\gendelta{q_{51}q_{11}}{b}{q_{41}q_{71}}{q_{61},q_{21}}                                                \\
+		\gendelta{q_{61}q_{11}}{b}{q_{41}q_{71}}{q_{21}}                                                       \\
+		\gendelta{q_{51}q_{21}}{b}{q_{41}q_{71}}{q_{61}}                                                       \\
+		\gendelta{q_{61}q_{21}}{b}{q_{41}q_{71}}{}                                                             \\
+		\gendelta{q_{71}q_{11}}{b}{q_{51}q_{41}}{ q_{81}, q_{21}}                                              \\
+		\gendelta{q_{81}q_{11}}{b}{q_{51}q_{41}}{ q_{21}}                                                      \\
+		\gendelta{q_{71}q_{21}}{b}{q_{51}q_{41}}{ q_{81}}                                                      \\
+		\gendelta{q_{81}q_{21}}{b}{q_{51}q_{41}}{}                                                             \\
+		\gendelta{q_{150}q_{11}}{b}{q_{21}q_{51}q_{41}}{q_{31},q_{41},q_{81},q_{71},q_{21}}                    \\
+		\gendelta{q_{31}q_{11}}{b}{q_{21}q_{51}q_{41}}{q_{41},q_{81},q_{71},q_{21}}                            \\
+		\gendelta{q_{41}q_{11}}{b}{q_{21}q_{51}q_{41}}{q_{81},q_{71},q_{21}}                                   \\
+		\gendelta{q_{150}q_{21}}{b}{q_{21}q_{51}q_{41}}{q_{31},q_{41},q_{81},q_{71}}                           \\
+		\gendelta{q_{31}q_{21}}{b}{q_{21}q_{51}q_{41}}{q_{41},q_{81},q_{71}}                                   \\
+		\gendelta{q_{41}q_{21}}{b}{q_{21}q_{51}q_{41}}{q_{81},q_{71}}                                          \\
+		\gendelta{q_{150}q_{51}}{b}{q_{21}q_{51}q_{71}}{q_{31},q_{41},q_{81},q_{71},q_{61}}                    \\
+		\gendelta{q_{31}q_{51}}{b}{q_{21}q_{51}q_{71}}{q_{41},q_{81},q_{71},q_{61}}                            \\
+		\gendelta{q_{41}q_{51}}{b}{q_{21}q_{51}q_{71}}{q_{81},q_{71},q_{61}}                                   \\
+		\gendelta{q_{150}q_{61}}{b}{q_{21}q_{51}q_{71}}{q_{31},q_{41},q_{81},q_{71}}                           \\
+		\gendelta{q_{31}q_{61}}{b}{q_{21}q_{51}q_{71}}{q_{41},q_{81},q_{71}}                                   \\
+		\gendelta{q_{41}q_{61}}{b}{q_{21}q_{51}q_{71}}{q_{81},q_{71}}                                          \\
+		\gendelta{q_{11}q_{71}q_{51}}{b}{q_{71}q_{51}q_{41}}{q_{21},q_{81},q_{61}}                             \\
+		\gendelta{q_{21}q_{71}q_{51}}{b}{q_{71}q_{51}q_{41}}{q_{81},q_{61}}                                    \\
+		\gendelta{q_{11}q_{81}q_{51}}{b}{q_{71}q_{51}q_{41}}{q_{21},q_{61}}                                    \\
+		\gendelta{q_{21}q_{81}q_{51}}{b}{q_{71}q_{51}q_{41}}{q_{61}}                                           \\
+		\gendelta{q_{11}q_{81}q_{61}}{b}{q_{71}q_{51}q_{41}}{q_{21}}                                           \\
+		\gendelta{q_{21}q_{81}q_{61}}{b}{q_{71}q_{51}q_{41}}{}                                                 \\
+		\gendelta{q_{150}q_{11}q_{51}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{31},q_{41},q_{81},q_{71},q_{61},q_{21}} \\
+		\gendelta{q_{31}q_{11}q_{51}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{41},q_{81},q_{71},q_{61},q_{21}}         \\
+		\gendelta{q_{41}q_{11}q_{51}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{81},q_{71},q_{61},q_{21}}                \\
+		\gendelta{q_{150}q_{21}q_{51}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{31},q_{41},q_{81},q_{71},q_{61}}        \\
+		\gendelta{q_{31}q_{21}q_{51}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{41},q_{81},q_{71},q_{61}}                \\
+		\gendelta{q_{41}q_{21}q_{51}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{81},q_{71},q_{61}}                       \\
+		\gendelta{q_{150}q_{11}q_{61}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{31},q_{41},q_{81},q_{71},q_{21}}        \\
+		\gendelta{q_{31}q_{11}q_{61}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{41},q_{81},q_{71},q_{21}}                \\
+		\gendelta{q_{41}q_{11}q_{61}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{81},q_{71},q_{21}}                       \\
+		\gendelta{q_{150}q_{21}q_{61}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{31},q_{41},q_{81},q_{71}}               \\
+		\gendelta{q_{31}q_{21}q_{61}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{41},q_{81},q_{71}}                       \\
+		\gendelta{q_{41}q_{21}q_{61}}{b}{q_{21}q_{51}q_{41}q_{71}}{q_{81},q_{71}}                              \\
+	\end{array}
+\end{align*}

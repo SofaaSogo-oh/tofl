@@ -33,6 +33,8 @@
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{cleveref}
+
+\usepackage{ifthen}
 \usemintedstyle{pastie}
 \setminted{fontsize=\small, linenos, breaklines}
 \input{hyphenat.tex}
@@ -100,15 +102,57 @@
   }\Longrightarrow {#2}%
 }
 
+\def \ifempty#1{\def\temp{#1} \ifx\temp\empty }
+
+\newcommand{\gendeltanonempty}[4]{%
+  \delta'\rbr{\sbr{#1 q_1\dots q_k}, #2} = \sbr{#3},& \cbr{q_1,\dots, q_k} \subset %
+  \cbr{%
+    \begin{array}{l}%
+      #4
+    \end{array}%
+  }%
+}
+
+\newcommand{\gendeltaempty}[4]{%
+  \delta'\rbr{\sbr{#1}, #2} = \sbr{#3}%
+}
+
+\newcommand{\gendelta}[4]{%
+  \ifempty{#4}%
+    \gendeltaempty{#1}{#2}{#3}{#4}%
+  \else%
+    \gendeltanonempty{#1}{#2}{#3}{#4}%
+  \fi%
+}
+
 \usepackage{tikz}
 \usetikzlibrary{automata, positioning, arrows}
 
+\newcommand{\maqa}{S_{11},S_{16}}
+\newcommand{\maqb}{}
+\newcommand{\maqc}{S_9}
+
+\newcommand{\mbqa}{S_{12},F}
+\newcommand{\mbqb}{}
+\newcommand{\mbqc}{S_{10}}
+
+\newcommand{\mcqa}{q_{51},q_{71},q_{61},q_{81}}
+\newcommand{\mcqb}{}
+\newcommand{\mcqc}{q_{11},q_{21}}
+
 \begin{document}
-% \include{header}
+% foo
+\include{header}
 \tableofcontents
 \include{content/task}
 \input{content/norm.tex}
 \input{content/fin_automata.tex}
 \input{content/regular_automata.tex}
+\input{content/determ_automata/init.tex}
+\input{content/unreachable_automata/init.tex}
+\input{content/minimal_automata/init.tex}
 \end{document}
 
+% \begin{document}
+% \end{document}
+%

@@ -1,0 +1,29 @@
+\subsubsection{Для автомата \(M_1\)}
+\begin{align*}
+	R   & = \cbr{[H]}, P_0 = \cbr{[H]}                                                                                                  \\
+	P_1 & = \cbr{[S_9], [S_9S_{11}],[S_{11}]}, P_1 \setminus R = \cbr{[S_9], [S_9S_{11}],[S_{11}]} \neq 0 \Longrightarrow               \\
+	R   & = P_1 \cup R = \cbr{[H], [S_9], [S_9S_{11}],[S_{11}]}                                                                         \\
+	P_2 & = \cbr{[S_{15}], [S_{16}], [S_{15}S_{16}]}, P_2 \setminus R = \cbr{[S_{15}], [S_{16}], [S_{15}S_{16}]} \neq 0 \Longrightarrow \\
+	R   & = P_2 \cup R = \cbr{[H], [S_9], [S_9S_{11}],[S_{11}], [S_{15}], [S_{16}], [S_{15}S_{16}]}                                     \\
+	P_3 & = \cbr{[S_9], [S_9S_{11}],[S_{11}]}, P_3 \setminus R = \varnothing \Longrightarrow                                            \\
+	R   & = P_2 \cup R = \cbr{[H], [S_9], [S_9S_{11}],[S_{11}], [S_{15}], [S_{16}], [S_{15}S_{16}]}, \text{алгоритм останавливается}
+\end{align*}
+Автомат \(M'_1\) после удаления недостижимых состояний:
+\begin{align*}
+	M'_1 & = (Q'_1, \Sigma, \delta'_1, q'_1, F'_1)                                          \\
+	q'_1 & = [H]                                                                            \\
+	Q'_1 & = R = \cbr{[H], [S_9], [S_9S_{11}],[S_{11}], [S_{15}], [S_{16}], [S_{15}S_{16}]} \\
+	F'_1 & = \cbr{[S_{16}], [S_{15}S_{16}]}
+\end{align*}
+Множество переходов автомата
+\begin{align*}
+	\begin{array}{lll}
+		\delta'_1([H], a) = \cbr{[S_9]}            & \delta'_1([H], b) = \cbr{[S_9S_{11}]}            & \delta'_1([H], c) = \cbr{[S_{11}]}            \\
+		\delta'_1([S_9], a) = \cbr{[S_{15}]}       & \delta'_1([S_9], b) = \cbr{[S_{15}]}                                                             \\
+		\delta'_1([S_{11}], b) = \cbr{[S_{16}]}    & \delta'_1([S_{11}], c) = \cbr{[S_{16}]}                                                          \\
+		\delta'_1([S_9S_{11}], a) = \cbr{[S_{15}]} & \delta'_1([S_9S_{11}], b) = \cbr{[S_{15}S_{16}]} & \delta'_1([S_9S_{11}], c) = \cbr{[S_{16}]}    \\
+		\delta'_1([S_{15}], a) = \cbr{[S_9]}       & \delta'_1([S_{15}], b) = \cbr{[S_9S_{11}]}       & \delta'_1([S_{15}], c) = \cbr{[S_{11}]}       \\
+		\delta'_1([S_{16}], b) = \cbr{[S_{11}]}    & \delta'_1([S_{16}], c) = \cbr{[S_{11}]}                                                          \\
+		\delta'_1([S_{15}S_{16}], a) = \cbr{[S_9]} & \delta'_1([S_{15}S_{16}], b) = \cbr{[S_9S_{11}]} & \delta'_1([S_{15}S_{16}], c) = \cbr{[S_{11}]} \\
+	\end{array}
+\end{align*}

@@ -1,0 +1,21 @@
+\subsection{Построение детерменированных конечных автоматов для НКА \(M_1\), \(M_2\), \(M_3\)}
+
+\begin{itemize}
+	\item Ножество состояний \(Q'\) результирующего автомата ДКА состояит из всех подмножеств \(Q\) исходного автомата. Каждое состояние \(Q'\) обозначается как \([A_1,\dots,A_n]\), где \(A_i \in Q\). Тогда получаем число различных сочетаний
+	      \begin{align*}
+		      |Q'| = \sum_{k=1}^n C^k_n = 2^n - 1
+	      \end{align*}
+	\item Начальное состояние имеет вид (\(H\) --- начальное состояние автомата \(M\))
+	      \begin{align*}
+		      q'_0  \equiv [H]
+	      \end{align*}
+	\item Множество конечных состояний (конечные состояния исходного автомата \(F=\cbr{F_1, \dots, F_n}\)) имеет вид
+	      \begin{align*}
+		      F' = \cbr{[q_1, \dots, q_j,q_{j+1},\dots,q_{j+k} ]}    \\
+		      \cbr{q_1, \dots, q_j} \subset \cbr{H, F_1, \dots, F_n} \\
+		      \cbr{q_{j+1},\dots,q_j} \subset Q \setminus \cbr{H, F_1, \dots, F_n}
+	      \end{align*}
+\end{itemize}
+\input{content/determ_automata/determ_m1.tex}
+\input{content/determ_automata/determ_m2.tex}
+\input{content/determ_automata/determ_m3.tex}
