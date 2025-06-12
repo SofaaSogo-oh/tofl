@@ -34,4 +34,4 @@
 \contentsline {subsection}{\numberline {2.9}Построение минимальных ДКА \(M\)}{43}{subsection.2.9}%
 \contentsline {subsubsection}{\numberline {2.9.1}Минимизация ДКА \(M'_1\)}{43}{subsubsection.2.9.1}%
 \contentsline {subsubsection}{\numberline {2.9.2}Минимизация ДКА \(M'_2\)}{43}{subsubsection.2.9.2}%
-\contentsline {subsubsection}{\numberline {2.9.3}Минимизация ДКА \(M'_3\)}{43}{subsubsection.2.9.3}%
+\contentsline {subsubsection}{\numberline {2.9.3}Минимизация ДКА \(M'_3\)}{44}{subsubsection.2.9.3}%

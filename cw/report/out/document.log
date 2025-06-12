@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/nixos.org) (preloaded format=xelatex 1980.1.1)  12 JUN 2025 20:01
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/nixos.org) (preloaded format=xelatex 1980.1.1)  12 JUN 2025 23:03
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1612,14 +1612,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `subscript' on input line 1.
 
-))
+Package cleveref Info: loaded `russian' language definitions on input line 7.
+Package cleveref Info: loaded `russian' language definitions on input line 7.
+[43
+
+
+
+]))
 Package cleveref Info: loaded `russian' language definitions on input line 1.
 Package cleveref Info: loaded `russian' language definitions on input line 1.
- [43
-
-
-
-]
+ [44]
 \openout2 = `content/minimal_automata/diagrams.aux'.
 
  (./content/minimal_automata/diagrams.tex
@@ -1635,17 +1637,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 )
 Package cleveref Info: loaded `russian' language definitions on input line 2.
 Package cleveref Info: loaded `russian' language definitions on input line 2.
- [44
+ [45
 
 
 
 ]
 Package cleveref Info: loaded `russian' language definitions on input line 2.
 Package cleveref Info: loaded `russian' language definitions on input line 2.
- [45]
+ [46]
 Package cleveref Info: loaded `russian' language definitions on input line 2.
 Package cleveref Info: loaded `russian' language definitions on input line 2.
- [46]) (out/document.aux (out/header.aux)
+ [47]
+Package cleveref Info: loaded `russian' language definitions on input line 2.
+Package cleveref Info: loaded `russian' language definitions on input line 2.
+ [48]) (out/document.aux (out/header.aux)
 Package cleveref Info: loaded `russian' language definitions on input line 9.
  (out/content/task.aux) (out/content/useless.aux) (out/content/unreachable.aux) (out/content/empty_rules.aux) (out/content/chain.aux) (out/content/useless2.aux) (out/content/unreachable2.aux) (out/content/fin_automata_build.aux) (out/content/state_diagram.aux) (out/content/determ_automata/is_determ.aux) (out/content/determ_automata/determ.aux) (out/content/unreachable_automata/automata.aux) (out/content/unreachable_automata/diagrams.aux) (out/content/minimal_automata/automata.aux) (out/content/minimal_automata/diagrams.aux))
  ***********
@@ -1656,12 +1661,12 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: CC91E10D45071434A47FED86F7D74671;12154.
  ) 
 Here is how much of TeX's memory you used:
- 36137 strings out of 475980
- 755857 string characters out of 5768027
+ 36215 strings out of 475980
+ 757296 string characters out of 5768027
  1979839 words of memory out of 5000000
- 57489 multiletter control sequences out of 15000+600000
+ 57567 multiletter control sequences out of 15000+600000
  565969 words of font info for 103 fonts, out of 8000000 for 9000
  433 hyphenation exceptions out of 8191
  93i,45n,107p,938b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/document.xdv (46 pages, 824160 bytes).
+Output written on out/document.xdv (48 pages, 839344 bytes).
