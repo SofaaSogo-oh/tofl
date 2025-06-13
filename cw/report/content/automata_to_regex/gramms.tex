@@ -1,0 +1,84 @@
+\subsection{Обратные преобразования}
+\subsubsection{Построение леволинейной и праволинейной грамматик по минимальному ДКА \(M\)}
+
+Анализируя графы переходов детерменированных минимальных конечных автоматов \(M''_1\), \(M''_2\) и \(M''_3\) можно сказать, что полученные автоматы полностью идентичны. Поэтому в дальнейшем будем рассматривать один автомат \(M = (Q, \Sigma, \delta, q, F)\). Переобозначим его состояния для удобства
+\begin{align*}
+	M & = (Q, \Sigma, \delta, q, F)  \\
+	q & = H                          \\
+	Q & = \cbr{H, A, B, C, F_1, F_2} \\
+	F & = \cbr{F_1, F_2}
+\end{align*}
+Множество переходов автомата \(M\)
+\begin{align*}
+	\begin{array}{lll}
+		\delta(H, a) = \cbr{A}     & \delta(H, b) = \cbr{B}     & \delta(H, c) = \cbr{C}     \\
+		\delta(A, a) = \cbr{H}     & \delta(A, b) = \cbr{H}                                  \\
+		\delta(C, b) = \cbr{F_{2}} & \delta(C, c) = \cbr{F_{2}}                              \\
+		\delta(B, a) = \cbr{H}     & \delta(B, b) = \cbr{F_1}   & \delta(B, c) = \cbr{F_{2}} \\
+		\delta(F_{2}, b) = \cbr{C} & \delta(F_{2}, c) = \cbr{C}                              \\
+		\delta(F_1, a) = \cbr{A}   & \delta(F_1, b) = \cbr{B}   & \delta(F_1, c) = \cbr{C}   \\
+	\end{array}
+\end{align*}
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+			->,
+			>=stealth',
+			node distance=2cm,
+			every state/.style={thick, fill=gray!10},
+			initial text={Начало}
+		]
+
+		\node[state, initial] (H) {$H$};
+		\node[state, right = of H] (B) {$B$};
+		\node[state, accepting, right = of B] (F1) {$F_1$};
+		\node[state, below = of B] (A) {$A$};
+		\node[state, accepting, above = of B] (F2) {$F_2$};
+		\node[state, above = of F2] (C) {$C$};
+
+		\path
+		(H) edge[bend right=20] node[below] {b} (B)
+		edge[bend right=30] node[below] {a} (A)
+		edge[bend left=40] node[above] {c} (C)
+		(A) edge node[above] {a,b} (H)
+		(B) edge[bend right=20] node[above] {a} (H)
+		edge [bend right=20] node[below] {b} (F1)
+		edge node[right] {c} (F2)
+		(C) edge[bend right=20] node[left] {b,c} (F2)
+		(F1) edge[bend left=30] node[below] {a} (A)
+		edge[bend right=20] node[above] {b} (B)
+		edge[bend right=40] node[above] {c} (C)
+		(F2) edge [bend right=20] node[right] {b,c} (C)
+		;
+
+	\end{tikzpicture}
+	\caption{Диаграмма состояний ДКА \(M\)}
+\end{figure}
+\newpage
+\subsubsubsection{Леволинейная грамматика \(G' = (\aleph', \Sigma', P', S')\)}
+\begin{align*}
+	\aleph' & = Q \cup \cbr{S} = \cbr{H, A, B, C, F_1, F_2, S}     \\
+	S'      & = S                                                  \\
+	G'      & = \grammatics{H, A, B, C, F_1, F_2, S}{\cbr{a,b,c}}{ %
+	S \to F_1|F_2                                                  \\
+	H \to Ba|Aa|Ab|\varepsilon                                     \\
+	A \to Ha|F_1a                                                  \\
+	B \to F_1b|Hb                                                  \\
+	C \to Hc|F_1c|F_2b|F_2c                                        \\
+	F_1 \to Bb                                                     \\
+		F_2 \to Bc|Cb|Cc
+	}{S}
+\end{align*}
+\subsubsubsection{Праволинейная грамматика \(G'' = (\aleph'', \Sigma'', P'', S'')\)}
+\begin{align*}
+	\aleph'' & = Q = \cbr{H, A, B, C, F_1, F_2}                  \\
+	S''      & = H                                               \\
+	G''      & = \grammatics{H, A, B, C, F_1, F_2}{\cbr{a,b,c}}{ %
+	H \to aA|bB|cC                                               \\
+	A \to aH|bH                                                  \\
+	B \to aH|bF_1|cF_2                                           \\
+	C \to bF_2|cF_2                                              \\
+	F_1 \to aA|bB|cC|\varepsilon                                 \\
+		F_2 \to bC|cC|\varepsilon
+	}{H}
+\end{align*}

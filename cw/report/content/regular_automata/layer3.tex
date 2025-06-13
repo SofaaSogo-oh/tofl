@@ -74,9 +74,9 @@
 		(q100) edge node[below] {b} (q41)
 
 		(q11) edge node[above] {a} (q31)
-		(q21) edge node[above] {a} (q31)
+		(q21) edge[bend left=20] node[above] {a} (q31)
 
-		(q11) edge node[below] {b} (q41)
+		(q11) edge[bend right=20] node[below] {b} (q41)
 		(q21) edge node[below] {b} (q41)
 		;
 	\end{tikzpicture}
@@ -159,9 +159,9 @@
 		(q120) edge node[below] {c} (q81)
 
 		(q51) edge node[above] {b} (q71)
-		(q61) edge node[above] {b} (q71)
+		(q61) edge[bend left=20] node[above] {b} (q71)
 
-		(q51) edge node[below] {c} (q81)
+		(q51) edge[bend right=20] node[below] {c} (q81)
 		(q61) edge node[below] {c} (q81)
 		;
 	\end{tikzpicture}

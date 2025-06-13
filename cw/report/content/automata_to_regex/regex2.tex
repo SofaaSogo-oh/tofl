@@ -1,0 +1,46 @@
+\subsubsubsection{СУРК в правосторонней форме записи}
+\begin{align*}
+	\left\{
+	\begin{array}{l}
+		H = aA + bB + cC                 \\
+		A = aH + bH                      \\
+		B = aH + bF_1 + cF_2             \\
+		C = bF_2 + cF_2                  \\
+		F_1 = aA + bB + cC + \varepsilon \\
+		F_2 = bC + cC + \varepsilon
+	\end{array}
+	\right.
+\end{align*}
+\begin{align*}
+	F_1 & = H + \varepsilon                                                                                \\
+	C   & = (b+c)F_2                                                                                       \\
+	F_2 & = (b+c)C + \varepsilon = (b+c)(b+c)F_2 + \varepsilon = \alpha^* \beta = ((b+c)(b+c))^*           \\
+	C   & = (b+c)F_2 = (b+c)((b+c)(b+c))^*                                                                 \\
+	H   & = a(a+b)H + b(aH + bF_1 + cF_2) + cC = a(a+b)H + b(aH + b(H + \varepsilon) + cF_2) + c(b+c)F_2 = \\
+	    & = a(a+b)H + baH + bbH + bb + bcF_2 + c(b+c)F_2 = (a+b)(a+b)H + bb + (bc + cb + cc)F_2 =          \\
+	    & = \alpha^* \beta = ((a+b)(a+b))^* (bb + (bc + cb + cc)F_2)  \\
+  p_2 & = ((a+b)(a+b))^* (bb + (bc + cb + cc)F_2)
+\end{align*}
+Пусть \(L_p\) --- язык, порождаемый регулярным выражением \(p = ((a+b)^2)^*((b+c)^2)^+\), а \(L_{p3}\) --- язык, порождаемый \(p_3\)
+Пусть \(m_1 = ((a+b)(a+b))\), \(m_2 = ((b+c)(b+c))\), \(S_1 = ((a+b)(a+b))^*\), \(S_2 = ((b+c)(b+c))^*\)
+\begin{align*}
+	H & = S_1 (bb + (bc + cb + cc)S_2) = S_1bb + S_1bcS_2 + S_1cbS_2 + S_1ccS_2
+\end{align*}
+Рассмотрим случаи:
+\begin{enumerate}
+  \item Пусть цепочка удовлетворяет \(S_1bb\), тогда она удовлетворяет и выражению \(p\);
+  \item Пусть цепочка удовлетворяет \(S_1bcS_2\), тогда она удовлетворяет и выражению \(p\);
+  \item Пусть цепочка удовлетворяет \(S_1cbS_2\), тогда она удовлетворяет и выражению \(p\);
+  \item Пусть цепочка удовлетворяет \(S_1ccS_2\), тогда она удовлетворяет и выражению \(p\);
+\end{enumerate}
+Из этого следует, что \(L_{p3} \subset L_p\). Осталось доказать обратное.
+При взятии \(S_2 = \varepsilon\)
+\begin{align*}
+  \cbr{S_1bb, S_1bc, S_1cb, S_1cc | S_1 \in \cbr{aa, ab, ba, bb, \dots}} \subset L_{p3}
+\end{align*}
+Так как можно взять \(S_1 = m_1^*bb\):
+\begin{align*}
+  \cbr{m_1^*bbcbS_2, m_1^*bbccS_2, m_1^*bbcbS_2, m_1^*bbbb | S_2 \in \cbr{bb, bc, cb, cc, \dots}} \subset L_{p3}
+\end{align*}
+Отсюда выходит, что \(L_p \subset L_{p3}\), а значит \(L_p = L_{p3}\), то есть \(p_3 = p\)
+

@@ -1,0 +1,32 @@
+\subsubsection{Построение регулярного выражения \(p_3\) По минимальному КА \(M\)}
+Система уравнений с регулярными коэффициентами в правосторонней форме записи
+\begin{align*}
+  \left\{
+  \begin{array}{l}
+    H = \varnothing + \varnothing H + aA + bB + cC + \varnothing F_1 + \varnothing F_2 \\
+    A = \varnothing + (a+b) H + \varnothing A + \varnothing B + \varnothing C + \varnothing F_1 + \varnothing F_2 \\
+    B = \varnothing + aH + \varnothing A + \varnothing B + \varnothing C + b F_1 + c F_2 \\
+    C = \varnothing + \varnothing H + \varnothing A + \varnothing C + \varnothing F_1 + (b+c) F_2 \\
+    F_1 = \varepsilon + \varnothing H + a A + b B + c C + \varnothing F_1 + \varnothing F_2 \\
+    F_2 = \varepsilon + \varnothing H + \varnothing A + \varnothing B + (b+c)C + \varnothing F_1 + \varnothing F_2
+  \end{array}
+  \right.
+\end{align*}
+
+\begin{align*}
+	\left\{
+	\begin{array}{l}
+		H = aA + bB + cC                 \\
+		A = aH + bH                      \\
+		B = aH + bF_1 + cF_2             \\
+		C = bF_2 + cF_2                  \\
+		F_1 = aA + bB + cC + \varepsilon \\
+		F_2 = bC + cC + \varepsilon
+	\end{array}
+	\right.
+\end{align*}
+
+Так как СУРК совпадает с СУРКом в правосторонней форме записи, то решение будет аналогичным и ответ будет совпадать
+\begin{align*}
+	p_3           & = ((a+b)(a+b))^*((b+c)(b+c))^+
+\end{align*}

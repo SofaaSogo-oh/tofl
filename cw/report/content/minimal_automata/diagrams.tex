@@ -1,4 +1,4 @@
-Построение диаграмм состояний минимального ДКА \(M\)
+\subsection{Построение диаграмм состояний минимального ДКА \(M\)}
 
 \begin{figure}[h!]
 	\centering
@@ -108,38 +108,3 @@
 	\caption{Диаграмма состояний ДКА \(M''_{3}\)}
 \end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}[
-			->,
-			>=stealth',
-			node distance=2.5cm,
-			every state/.style={thick, fill=gray!10},
-			initial text={Начало}
-		]
-
-		\node[state, initial] (H) {$H$};
-		\node[state, right = of H] (B) {$B$};
-		\node[state, accepting, right = of B] (F1) {$F_1$};
-		\node[state, below = of B] (A) {$A$};
-		\node[state, accepting, above = of B] (F2) {$F_2$};
-		\node[state, above = of F2] (C) {$C$};
-
-		\path
-		(H) edge[bend right=20] node[below] {b} (B)
-		edge[bend right=30] node[below] {a} (A)
-		edge[bend left=40] node[above] {c} (C)
-		(A) edge node[above] {a,b} (H)
-		(B) edge[bend right=20] node[above] {a} (H)
-		edge [bend right=20] node[below] {b} (F1)
-		edge node[right] {c} (F2)
-		(C) edge[bend right=20] node[left] {b,c} (F2)
-		(F1) edge[bend left=30] node[below] {a} (A)
-		edge[bend right=20] node[above] {b} (B)
-		edge[bend right=40] node[above] {c} (C)
-		(F2) edge [bend right=20] node[right] {b,c} (C)
-		;
-
-	\end{tikzpicture}
-	\caption{Диаграмма состояний ДКА \(M''_{1}\)}
-\end{figure}

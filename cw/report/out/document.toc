@@ -1,37 +1,48 @@
 \babel@toc {russian}{}\relax 
-\contentsline {section}{\numberline {1}Определение типа языка L}{3}{section.1}%
-\contentsline {section}{\numberline {2}Регулярный язык}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Приведите искомого множества к регулярному виду}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Построение регулярного выражения для искомого регулярного множества}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Получение регулярной грамматики}{4}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Построение леволинейной и праволинейной грамматик}{4}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Приведение грамматики}{6}{subsubsection.2.3.2}%
-\contentsline {paragraph}{\numberline {2.3.2.1} Проверка пустоты}{6}{paragraph.2.3.2.1}%
-\contentsline {paragraph}{\numberline {2.3.2.2} Удаление бесполезных символов}{8}{paragraph.2.3.2.2}%
-\contentsline {paragraph}{\numberline {2.3.2.3} Удаление недостижимых символов}{9}{paragraph.2.3.2.3}%
-\contentsline {paragraph}{\numberline {2.3.2.4} Удаление пустых правил}{10}{paragraph.2.3.2.4}%
-\contentsline {paragraph}{\numberline {2.3.2.5} Удаление цепных правил}{11}{paragraph.2.3.2.5}%
-\contentsline {paragraph}{\numberline {2.3.2.6} Удаление бесполезных символов грамматик \(G'_{19}\) и \(G''_{18}\)}{15}{paragraph.2.3.2.6}%
-\contentsline {paragraph}{\numberline {2.3.2.7} Удаление недостижимых символов грамматик \(G'_{19}\) и \(G''_{18}\)}{16}{paragraph.2.3.2.7}%
-\contentsline {subsubsection}{\numberline {2.3.3}Построение конечного автомата для приведенной грамматики}{17}{subsubsection.2.3.3}%
-\contentsline {paragraph}{\numberline {2.3.3.1}Приведение к автоматному виду}{17}{paragraph.2.3.3.1}%
-\contentsline {paragraph}{\numberline {2.3.3.2}Построение конечных автоматов \(M_1 = (Q_1, \Sigma , \delta _1, q_1, F_1)\) и \(M_2 = (Q_2, \Sigma , \delta _2, q_2, F_2)\) для автоматных грамматик \(G'_{20}\) и \(G''_{19}\).}{18}{paragraph.2.3.3.2}%
-\contentsline {paragraph}{\numberline {2.3.3.3}Построение диаграммы состояний автомата \(M\)}{19}{paragraph.2.3.3.3}%
-\contentsline {subsection}{\numberline {2.4}Построение КА по регулярному выражению}{20}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Построение КА \(M_3\)}{20}{subsubsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.5}Определение детерменированности построенных автоматов \(M_1\), \(M_2\), \(M_3\)}{33}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Построение детерменированных конечных автоматов для НКА \(M_1\), \(M_2\), \(M_3\)}{34}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}ДКА для \(M_1\)}{34}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}ДКА для \(M_2\)}{35}{subsubsection.2.6.2}%
-\contentsline {subsubsection}{\numberline {2.6.3}ДКА для \(M_3\)}{36}{subsubsection.2.6.3}%
-\contentsline {paragraph}{\numberline {2.6.3.1}Удаление недостижимых символов}{36}{paragraph.2.6.3.1}%
-\contentsline {paragraph}{\numberline {2.6.3.2}Построение ДКА}{37}{paragraph.2.6.3.2}%
-\contentsline {subsection}{\numberline {2.7}Удаление недостижимых состояний для автоматов \(M_1\), \(M_2\), \(M_3\)}{39}{subsection.2.7}%
-\contentsline {subsubsection}{\numberline {2.7.1}Для автомата \(M_1\)}{39}{subsubsection.2.7.1}%
-\contentsline {subsubsection}{\numberline {2.7.2}Для автомата \(M_2\)}{39}{subsubsection.2.7.2}%
-\contentsline {subsubsection}{\numberline {2.7.3}Для автомата \(M_3\)}{40}{subsubsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.8}Диаграммы состояний построенных детерменированных автоматов \(M'_1\), \(M'_2\), \(M'_3\) без недостижимых состояний}{41}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Построение минимальных ДКА \(M\)}{43}{subsection.2.9}%
-\contentsline {subsubsection}{\numberline {2.9.1}Минимизация ДКА \(M'_1\)}{43}{subsubsection.2.9.1}%
-\contentsline {subsubsection}{\numberline {2.9.2}Минимизация ДКА \(M'_2\)}{43}{subsubsection.2.9.2}%
-\contentsline {subsubsection}{\numberline {2.9.3}Минимизация ДКА \(M'_3\)}{44}{subsubsection.2.9.3}%
+\contentsline {section}{\numberline {1}Определение типа языка L}{4}{section.1}%
+\contentsline {section}{\numberline {2}Регулярный язык}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Приведите искомого множества к регулярному виду}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Построение регулярного выражения для искомого регулярного множества}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Получение регулярной грамматики}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Построение леволинейной и праволинейной грамматик}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Приведение грамматики}{7}{subsubsection.2.3.2}%
+\contentsline {paragraph}{\numberline {2.3.2.1} Проверка пустоты}{7}{paragraph.2.3.2.1}%
+\contentsline {paragraph}{\numberline {2.3.2.2} Удаление бесполезных символов}{9}{paragraph.2.3.2.2}%
+\contentsline {paragraph}{\numberline {2.3.2.3} Удаление недостижимых символов}{10}{paragraph.2.3.2.3}%
+\contentsline {paragraph}{\numberline {2.3.2.4} Удаление пустых правил}{11}{paragraph.2.3.2.4}%
+\contentsline {paragraph}{\numberline {2.3.2.5} Удаление цепных правил}{12}{paragraph.2.3.2.5}%
+\contentsline {paragraph}{\numberline {2.3.2.6} Удаление бесполезных символов грамматик \(G'_{19}\) и \(G''_{18}\)}{16}{paragraph.2.3.2.6}%
+\contentsline {paragraph}{\numberline {2.3.2.7} Удаление недостижимых символов грамматик \(G'_{19}\) и \(G''_{18}\)}{17}{paragraph.2.3.2.7}%
+\contentsline {subsubsection}{\numberline {2.3.3}Построение конечного автомата для приведенной грамматики}{18}{subsubsection.2.3.3}%
+\contentsline {paragraph}{\numberline {2.3.3.1}Приведение к автоматному виду}{18}{paragraph.2.3.3.1}%
+\contentsline {paragraph}{\numberline {2.3.3.2}Построение конечных автоматов \(M_1 = (Q_1, \Sigma , \delta _1, q_1, F_1)\) и \(M_2 = (Q_2, \Sigma , \delta _2, q_2, F_2)\) для автоматных грамматик \(G'_{20}\) и \(G''_{19}\).}{19}{paragraph.2.3.3.2}%
+\contentsline {paragraph}{\numberline {2.3.3.3}Построение диаграммы состояний автомата \(M\)}{20}{paragraph.2.3.3.3}%
+\contentsline {subsection}{\numberline {2.4}Построение КА по регулярному выражению}{21}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Построение КА \(M_3\)}{21}{subsubsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.5}Определение детерменированности построенных автоматов \(M_1\), \(M_2\), \(M_3\)}{34}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Построение детерменированных конечных автоматов для НКА \(M_1\), \(M_2\), \(M_3\)}{35}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}ДКА для \(M_1\)}{35}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}ДКА для \(M_2\)}{36}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}ДКА для \(M_3\)}{37}{subsubsection.2.6.3}%
+\contentsline {paragraph}{\numberline {2.6.3.1}Удаление недостижимых символов}{37}{paragraph.2.6.3.1}%
+\contentsline {paragraph}{\numberline {2.6.3.2}Построение ДКА}{38}{paragraph.2.6.3.2}%
+\contentsline {subsection}{\numberline {2.7}Удаление недостижимых состояний для автоматов \(M_1\), \(M_2\), \(M_3\)}{40}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Для автомата \(M_1\)}{40}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Для автомата \(M_2\)}{40}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Для автомата \(M_3\)}{41}{subsubsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.8}Диаграммы состояний построенных детерменированных автоматов \(M'_1\), \(M'_2\), \(M'_3\) без недостижимых состояний}{42}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Построение минимальных ДКА \(M\)}{44}{subsection.2.9}%
+\contentsline {subsubsection}{\numberline {2.9.1}Минимизация ДКА \(M'_1\)}{44}{subsubsection.2.9.1}%
+\contentsline {subsubsection}{\numberline {2.9.2}Минимизация ДКА \(M'_2\)}{44}{subsubsection.2.9.2}%
+\contentsline {subsubsection}{\numberline {2.9.3}Минимизация ДКА \(M'_3\)}{45}{subsubsection.2.9.3}%
+\contentsline {subsection}{\numberline {2.10}Построение диаграмм состояний минимального ДКА \(M\)}{46}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Обратные преобразования}{49}{subsection.2.11}%
+\contentsline {subsubsection}{\numberline {2.11.1}Построение леволинейной и праволинейной грамматик по минимальному ДКА \(M\)}{49}{subsubsection.2.11.1}%
+\contentsline {paragraph}{\numberline {2.11.1.1}Леволинейная грамматика \(G' = (\aleph ', \Sigma ', P', S')\)}{50}{paragraph.2.11.1.1}%
+\contentsline {paragraph}{\numberline {2.11.1.2}Праволинейная грамматика \(G'' = (\aleph '', \Sigma '', P'', S'')\)}{50}{paragraph.2.11.1.2}%
+\contentsline {subsubsection}{\numberline {2.11.2}Построение регулярных выражений \(p_1\), \(p_2\) для построенных регулярых грамматик}{51}{subsubsection.2.11.2}%
+\contentsline {paragraph}{\numberline {2.11.2.1}СУРК в левосторонней форме записи}{51}{paragraph.2.11.2.1}%
+\contentsline {paragraph}{\numberline {2.11.2.2}СУРК в правосторонней форме записи}{52}{paragraph.2.11.2.2}%
+\contentsline {subsubsection}{\numberline {2.11.3}Построение регулярного выражения \(p_3\) По минимальному КА \(M\)}{53}{subsubsection.2.11.3}%
+\contentsline {subsubsection}{\numberline {2.11.4}Построение регулярных множеств \(L_1\), \(L_2\), \(L_3\) по регулярным выражениям \(p_1\), \(p_2\), \(p_3\)}{54}{subsubsection.2.11.4}%
+\contentsline {subsubsection}{\numberline {2.11.5}Сравнение исходного языка \(L\) и полученного}{54}{subsubsection.2.11.5}%

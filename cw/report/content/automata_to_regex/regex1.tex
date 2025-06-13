@@ -1,0 +1,29 @@
+\subsubsection{Построение регулярных выражений \(p_1\), \(p_2\) для построенных регулярых грамматик}
+\subsubsubsection{СУРК в левосторонней форме записи}
+\begin{align*}
+	\left\{
+	\begin{array}{l}
+		S = F_1+F_2              \\
+		H = Ba+Aa+Ab+\varepsilon \\
+		A = Ha+F_1a              \\
+		B = F_1b+Hb              \\
+		C = Hc+F_1c+F_2b+F_2c    \\
+		F_1 = Bb                 \\
+		F_2 = Bc+Cb+Cc
+	\end{array}
+	\right.
+\end{align*}
+\begin{align*}
+	S             & = F_1 + F_2 = Bb + Bc + Cb + Cc = (B+C)(b+c)                                                  \\
+	B+C           & = F_1b+Hb+Hc+F_1c+F_2b+F_2c = (F_1 + H + F_2)(b+c)                                            \\
+	F_1 + H + F_2 & = Bb + Ba+Aa+Ab+\varepsilon + Bc+Cb+Cc =                                                      \\
+	              & = (A+B)(a+b) + (B+C)(b+c) + \varepsilon = (A+B)(a+b) +(F_1 + H + F_2)(b+c)(b+c) + \varepsilon \\
+	A+B           & = Ha+F_1a + F_1b+Hb = (H+F_1)(a+b) = (Ba+Aa+Ab+Bb+\varepsilon)(a+b) =                         \\
+	              & = ((A+B)(a+b) + \varepsilon)(a+b) =                                                           \\
+	              & = (A+B)(a+b)(a+b) + (a+b) = \beta \alpha^* = (a+b)((a+b)(a+b))^*                              \\
+	F_1 + H + F_2 & = (a+b)((a+b)(a+b))^*(a+b) + \varepsilon + (F_1 + H + F_2)(b+c)(b+c) =                        \\
+	              & = \beta \alpha^* = ((a+b)(a+b)((a+b)(a+b))^* + \varepsilon)((b+c)(b+c))^* =                   \\
+	              & = (((a+b)(a+b))^+ + \varepsilon)((b+c)(b+c))^* = ((a+b)(a+b))^*((b+c)(b+c))^*                 \\
+	S             & = ((a+b)(a+b))^*((b+c)(b+c))^*(b+c)(b+c) = ((a+b)(a+b))^*((b+c)(b+c))^+                       \\
+	p_1           & = ((a+b)(a+b))^*((b+c)(b+c))^+
+\end{align*}
